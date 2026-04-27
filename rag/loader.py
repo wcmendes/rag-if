@@ -1,6 +1,20 @@
+import json
 from pathlib import Path
 
 SUPPORTED_EXTENSIONS = {'.html', '.htm', '.txt', '.pdf'}
+
+
+def load_sidecar(raw_dir: Path) -> dict:
+    """
+    Load optional metadata.json from raw_dir.
+    Format: { "filename.html": { "title": "...", "date": "...", "number": "..." } }
+    Values here override what is auto-extracted from the document content.
+    """
+    sidecar = raw_dir / 'metadata.json'
+    if sidecar.exists():
+        with open(sidecar, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
 
 
 def list_documents(raw_dir: str = 'data/raw') -> list[dict]:

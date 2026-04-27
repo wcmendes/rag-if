@@ -2,14 +2,42 @@ import os
 import requests
 
 
+def _format_context(chunks: list[dict]) -> str:
+    """Format chunks with their document metadata as visible headers."""
+    parts = []
+    for chunk in chunks:
+        meta = chunk['metadata']
+
+        header_parts = [f"Arquivo: {meta.get('source_file', '?')}"]
+        if meta.get('doc_number'):
+            header_parts.append(f"Documento: {meta['doc_number']}")
+        elif meta.get('doc_title'):
+            header_parts.append(f"Título: {meta['doc_title']}")
+        if meta.get('doc_date'):
+            header_parts.append(f"Data de publicação: {meta['doc_date']}")
+        if meta.get('page'):
+            header_parts.append(f"Página: {meta['page']}")
+
+        header = ' | '.join(header_parts)
+        parts.append(f"[{header}]\n{chunk['text']}")
+
+    return '\n\n---\n\n'.join(parts)
+
+
 def _build_prompt(question: str, chunks: list[dict]) -> str:
-    context = '\n\n---\n\n'.join(c['text'] for c in chunks)
+    context = _format_context(chunks)
     return (
         "INSTRUÇÃO OBRIGATÓRIA: Você DEVE responder EXCLUSIVAMENTE em português do Brasil. "
         "Não use nenhuma outra língua, independentemente do idioma dos documentos ou do modelo.\n\n"
         "Você é um assistente especializado em documentos normativos institucionais.\n"
-        "Responda à pergunta abaixo com base APENAS nos trechos de documentos fornecidos.\n"
-        "Se as informações nos documentos não forem suficientes, diga claramente que não encontrou evidências.\n\n"
+        "Responda à pergunta abaixo com base APENAS nos trechos de documentos fornecidos.\n\n"
+        "REGRA PARA CONFLITOS: Se documentos diferentes apresentarem informações contraditórias "
+        "sobre o mesmo assunto, identifique explicitamente o conflito. Cite qual norma é mais "
+        "antiga e qual é mais recente, e o que cada uma estabelece. "
+        "Exemplo: 'A Portaria X (publicada em 2022) estabelecia Y. "
+        "A Resolução Z (publicada em 2024) alterou essa regra para W.'\n\n"
+        "Se as informações nos documentos não forem suficientes para responder, "
+        "diga claramente que não encontrou evidências nos documentos indexados.\n\n"
         f"Documentos:\n{context}\n\n"
         f"Pergunta: {question}\n\n"
         "Resposta em português do Brasil:"

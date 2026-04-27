@@ -1,0 +1,13 @@
+{
+  "_instrucoes": "Preencha apenas os campos que a extração automática não detectar corretamente. Remova esta chave antes de usar.",
+  "arquivo1.html": {
+    "title": "Resolução nº 001/2023 - CONSUP/IFMA",
+    "date": "15 de março de 2023",
+    "number": "Resolução nº 001/2023"
+  },
+  "arquivo2.html": {
+    "title": "Resolução nº 001/2024 - CONSUP/IFMA",
+    "date": "20 de fevereiro de 2024",
+    "number": "Resolução nº 001/2024"
+  }
+}

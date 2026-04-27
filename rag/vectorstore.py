@@ -41,5 +41,19 @@ def search(query_embedding: list[float], n_results: int = 5) -> dict:
     )
 
 
+def get_by_ids(ids: list[str]) -> list[dict]:
+    """Fetch specific chunks by their chunk_id."""
+    if not ids:
+        return []
+    collection = get_collection()
+    results = collection.get(ids=ids, include=['documents', 'metadatas'])
+    if not results['documents']:
+        return []
+    return [
+        {'text': doc, 'metadata': meta, 'score': None}
+        for doc, meta in zip(results['documents'], results['metadatas'])
+    ]
+
+
 def count() -> int:
     return get_collection().count()
