@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# RAG project — local generated data
+vectordb/
+data/processed/
+.env
+
+CLAUDE.md
