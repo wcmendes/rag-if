@@ -1,4 +1,4 @@
-# rag-ifma-normativos
+# rag-if
 
 Sistema RAG local em Python para consulta de documentos normativos institucionais por linha de comando.
 
@@ -12,7 +12,7 @@ Sistema RAG local em Python para consulta de documentos normativos institucionai
 ```bash
 # 1. Clone e entre no diretório
 git clone <repo-url>
-cd rag-ifma-normativos
+cd rag-if
 
 # 2. Crie e ative o ambiente virtual
 python -m venv .venv
@@ -108,7 +108,7 @@ Fontes:
 ## Estrutura do projeto
 
 ```
-rag-ifma-normativos/
+rag-if/
 ├── ingest.py          # indexação
 ├── ask.py             # consulta
 ├── requirements.txt
