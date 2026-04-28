@@ -27,7 +27,7 @@ def main() -> None:
             continue
         page = f" | página {meta['page']}" if 'page' in meta else ''
         print(f"[{meta['chunk_id']}{page}]")
-        print(doc[:300].replace('\n', ' '))
+        print(f"  ({len(doc)} chars) {doc.replace(chr(10), ' ')}")
         print()
 
 

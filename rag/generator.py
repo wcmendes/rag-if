@@ -52,6 +52,8 @@ def _call_ollama(prompt: str) -> str:
         json={'model': model, 'prompt': prompt, 'stream': False},
         timeout=300,
     )
+    if not response.ok:
+        print(f"Ollama error {response.status_code}: {response.text}")
     response.raise_for_status()
     return response.json()['response'].strip()
 
