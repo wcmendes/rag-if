@@ -284,17 +284,17 @@ def configure_ragas_models() -> tuple[Any, Any]:
         try:
             from openai import OpenAI  # noqa: PLC0415
             from ragas.llms import llm_factory  # noqa: PLC0415
-            from ragas.embeddings import OpenAIEmbeddings as RagasOpenAIEmbeddings  # noqa: PLC0415
+            from ragas.embeddings import LangchainEmbeddingsWrapper  # noqa: PLC0415
+            from langchain_openai import OpenAIEmbeddings as LCOpenAIEmbeddings  # noqa: PLC0415
         except ImportError as exc:
-            logger.error("Missing dependency: %s — run: pip install ragas openai", exc)
+            logger.error("Missing dependency: %s — run: pip install ragas openai langchain-openai", exc)
             sys.exit(1)
 
         judge_model = os.getenv("RAGAS_JUDGE_MODEL", "gpt-4o-mini")
         emb_model = os.getenv("RAGAS_EMBEDDING_MODEL", "text-embedding-3-small")
-        openai_client = OpenAI(api_key=api_key)
-        llm = llm_factory(judge_model, provider="openai", client=openai_client)
-        embeddings = RagasOpenAIEmbeddings(client=openai_client, model=emb_model)
-        logger.info("RAGAS judge  : OpenAI %s", judge_model)
+        llm = llm_factory(judge_model, provider="openai", client=OpenAI(api_key=api_key))
+        embeddings = LangchainEmbeddingsWrapper(LCOpenAIEmbeddings(model=emb_model, api_key=api_key))
+        logger.info("RAGAS judge  : OpenAI %s (native)", judge_model)
         logger.info("RAGAS embeds : OpenAI %s", emb_model)
 
     elif provider == "ollama":
