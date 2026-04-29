@@ -306,13 +306,16 @@ def configure_ragas_models() -> tuple[Any, Any]:
 
     elif provider == "ollama":
         try:
-            from langchain_community.chat_models import ChatOllama  # noqa: PLC0415
-            from langchain_community.embeddings import OllamaEmbeddings  # noqa: PLC0415
+            from langchain_ollama import ChatOllama, OllamaEmbeddings  # noqa: PLC0415
         except ImportError:
-            logger.error(
-                "langchain-community not installed. Run: pip install langchain-community"
-            )
-            sys.exit(1)
+            try:
+                from langchain_community.chat_models import ChatOllama  # noqa: PLC0415
+                from langchain_community.embeddings import OllamaEmbeddings  # noqa: PLC0415
+            except ImportError:
+                logger.error(
+                    "langchain-ollama not installed. Run: pip install langchain-ollama"
+                )
+                sys.exit(1)
 
         ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434")
         judge_model = os.getenv("RAGAS_JUDGE_MODEL", "llama3.2")
@@ -496,7 +499,21 @@ def _run_ragas_v2(mapped: list[dict[str, Any]]) -> Any:
         for m in mapped
     ]
     dataset = EvaluationDataset(samples=samples)
-    return evaluate(dataset=dataset, metrics=metrics, llm=llm, embeddings=embeddings)
+
+    try:
+        from ragas import RunConfig  # noqa: PLC0415
+        # DeepSeek R1 and other local models can be very slow — allow up to 10 min per call
+        run_config = RunConfig(timeout=600, max_retries=3, max_wait=120)
+    except ImportError:
+        run_config = None
+
+    kwargs: dict[str, Any] = dict(
+        dataset=dataset, metrics=metrics, llm=llm, embeddings=embeddings
+    )
+    if run_config is not None:
+        kwargs["run_config"] = run_config
+
+    return evaluate(**kwargs)
 
 
 # ── 10. Save RAGAS outputs ─────────────────────────────────────────────────────
