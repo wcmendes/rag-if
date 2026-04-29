@@ -222,4 +222,14 @@ vectordb/
 data/processed/
 .env
 
+# Raw source documents — not versioned (contains institutional content)
+data/raw/
+
+# Evaluation pipeline outputs
+respostas_rag.json
+respostas_rag.jsonl
+respostas_rag.csv
+resultados_ragas/
+eval_pipeline.log
+
 CLAUDE.md

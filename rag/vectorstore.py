@@ -55,5 +55,16 @@ def get_by_ids(ids: list[str]) -> list[dict]:
     ]
 
 
+def is_indexed(filename: str) -> bool:
+    """Return True if this file already has chunks in the collection."""
+    collection = get_collection()
+    results = collection.get(
+        where={"source_file": filename},
+        limit=1,
+        include=["metadatas"],
+    )
+    return len(results.get("ids", [])) > 0
+
+
 def count() -> int:
     return get_collection().count()

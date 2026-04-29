@@ -9,6 +9,36 @@ from rag.retriever import retrieve
 from rag.generator import generate_answer
 
 
+def query_rag(question: str, n_results: int = 5) -> dict:
+    """
+    Structured RAG result for programmatic / evaluation use.
+
+    Returns:
+      question    - the input question
+      answer      - generated answer (or a 'not found' message)
+      contexts    - list of chunk texts used as context
+      source_ids  - chunk_id for each context chunk
+      file_names  - source_file for each context chunk
+    """
+    chunks = retrieve(question, n_results=n_results)
+    if not chunks:
+        return {
+            "question": question,
+            "answer": "Nenhum documento foi encontrado no índice. Execute python ingest.py primeiro.",
+            "contexts": [],
+            "source_ids": [],
+            "file_names": [],
+        }
+    answer = generate_answer(question, chunks)
+    return {
+        "question": question,
+        "answer": answer,
+        "contexts": [c["text"] for c in chunks],
+        "source_ids": [c["metadata"].get("chunk_id", "") for c in chunks],
+        "file_names": [c["metadata"].get("source_file", "") for c in chunks],
+    }
+
+
 def _format_source(meta: dict) -> str:
     source = meta.get('source_file', 'unknown')
     chunk_id = meta.get('chunk_id', '')

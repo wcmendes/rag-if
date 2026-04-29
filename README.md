@@ -139,3 +139,123 @@ rag-if/
 ## Variáveis de ambiente
 
 Veja [.env.example](.env.example) para todas as opções disponíveis.
+
+---
+
+## Pipeline de avaliação RAG com RAGAS
+
+O script [orchestrator_rag_eval.py](orchestrator_rag_eval.py) automatiza a avaliação do sistema em três etapas:
+
+```
+perguntas.json  →  (collect)  →  respostas_rag.json  →  (evaluate)  →  resultados_ragas/
+```
+
+### Quando o RAGAS entra no pipeline
+
+O RAGAS **não é usado durante a geração das respostas**. Ele entra **somente na etapa de avaliação**, depois que todas as respostas já foram coletadas. Isso significa que você pode rodar `collect` com o Ollama local, e depois rodar `evaluate` com uma chave OpenAI (que o RAGAS usa como juiz).
+
+### 1. Instalar dependências do RAGAS
+
+```bash
+pip install ragas langchain-openai openai
+```
+
+> Se quiser usar Ollama como juiz (mais lento, menor qualidade de avaliação):
+> ```bash
+> pip install langchain-community
+> ```
+
+### 2. Configurar o modelo julgador
+
+Edite seu `.env` e adicione:
+
+```env
+# Juiz do RAGAS — use um modelo superior ao seu RAG principal
+RAGAS_LLM_PROVIDER=openai
+RAGAS_JUDGE_MODEL=gpt-4o
+RAGAS_EMBEDDING_MODEL=text-embedding-3-small
+OPENAI_API_KEY=sk-...
+```
+
+> Para usar Ollama como juiz:
+> ```env
+> RAGAS_LLM_PROVIDER=ollama
+> RAGAS_JUDGE_MODEL=llama3.3
+> RAGAS_EMBEDDING_MODEL=nomic-embed-text
+> ```
+
+### 3. Preparar o arquivo de perguntas
+
+Crie `perguntas.json` com o seguinte formato (veja [perguntas_exemplo.json](perguntas_exemplo.json)):
+
+```json
+[
+  {
+    "id": 1,
+    "question": "Sua pergunta aqui",
+    "ground_truth": "Resposta correta esperada"
+  }
+]
+```
+
+### 4. Coletar respostas do RAG
+
+Certifique-se de que o `ingest.py` já foi executado e o vectordb está populado. Depois:
+
+```bash
+python orchestrator_rag_eval.py --mode collect --input perguntas.json --output respostas_rag.json
+```
+
+Isso gera `respostas_rag.json` (e também `.jsonl` e `.csv`) com:
+
+```json
+[
+  {
+    "id": 1,
+    "question": "...",
+    "ground_truth": "...",
+    "answer": "Resposta gerada pelo RAG",
+    "contexts": ["chunk 1", "chunk 2", "..."]
+  }
+]
+```
+
+> **Checkpoint automático**: se a coleta for interrompida, reexecute o mesmo comando.
+> Perguntas já processadas são automaticamente puladas.
+
+### 5. Avaliar com RAGAS
+
+```bash
+python orchestrator_rag_eval.py --mode evaluate --input respostas_rag.json --output-dir ./resultados_ragas
+```
+
+Métricas calculadas (quando disponíveis na versão instalada):
+
+| Métrica | O que avalia |
+|---|---|
+| `faithfulness` | A resposta é fiel aos documentos recuperados? |
+| `answer_relevancy` | A resposta é relevante para a pergunta? |
+| `context_precision` | Os chunks mais relevantes estão no topo? |
+| `context_recall` | O contexto cobre o que a resposta de referência exige? |
+| `answer_correctness` | A resposta está correta comparada ao ground truth? |
+
+Os resultados são salvos em `resultados_ragas/ragas_results_<timestamp>.csv` e `.json`.
+
+### 6. Rodar tudo de uma vez
+
+```bash
+python orchestrator_rag_eval.py --mode all \
+  --input perguntas.json \
+  --output respostas_rag.json \
+  --output-dir ./resultados_ragas
+```
+
+### Opções da CLI
+
+```
+--mode          collect | evaluate | all
+--input         arquivo de entrada (padrão: perguntas.json)
+--output        arquivo de saída enriquecido (padrão: respostas_rag.json)
+--output-dir    pasta para resultados do RAGAS (padrão: ./resultados_ragas)
+--n-results     chunks recuperados por pergunta (padrão: 5)
+```

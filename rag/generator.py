@@ -50,7 +50,7 @@ def _call_ollama(prompt: str) -> str:
     response = requests.post(
         f'{url}/api/generate',
         json={'model': model, 'prompt': prompt, 'stream': False},
-        timeout=300,
+        timeout=600,
     )
     if not response.ok:
         print(f"Ollama error {response.status_code}: {response.text}")

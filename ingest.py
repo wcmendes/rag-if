@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Index all documents found in data/raw/ into the local vector store."""
+import argparse
 import sys
 from pathlib import Path
 from dotenv import load_dotenv
@@ -10,10 +11,23 @@ from rag.loader import list_documents, load_sidecar
 from rag.parser import extract_text, extract_doc_meta
 from rag.chunker import chunk_document
 from rag.embedder import embed_texts
-from rag.vectorstore import add_chunks, count
+from rag.vectorstore import add_chunks, count, is_indexed
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description='Index documents from data/raw/ into the local vector store.'
+    )
+    parser.add_argument(
+        '--reindex',
+        action='store_true',
+        help='Force reindex all files, even if already indexed.',
+    )
+    return parser.parse_args()
 
 
 def main() -> None:
+    args = parse_args()
     raw_dir = 'data/raw'
 
     try:
@@ -33,9 +47,18 @@ def main() -> None:
     for doc in documents:
         print(f"  - {doc['filename']} ({doc['file_type']})")
 
+    if args.reindex:
+        print("\n[--reindex] Forcing full reindex of all files.\n")
+
     total_chunks = 0
+    skipped = 0
 
     for doc in documents:
+        if not args.reindex and is_indexed(doc['filename']):
+            print(f"\nSkipping (already indexed): {doc['filename']}")
+            skipped += 1
+            continue
+
         print(f"\nProcessing: {doc['filename']}")
 
         segments = extract_text(doc['path'], doc['file_type'])
@@ -67,6 +90,8 @@ def main() -> None:
         total_chunks += len(chunks)
         print(f"  Indexed: {len(chunks)} chunk(s)")
 
+    if skipped:
+        print(f"\nSkipped {skipped} already-indexed file(s). Use --reindex to force.")
     print(f"\nDone. Total chunks in vector store: {count()}")
 
 

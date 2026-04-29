@@ -6,3 +6,11 @@ python-dotenv>=1.0.0
 requests>=2.31.0
 # Optional: only needed if LLM_PROVIDER=openai
 # openai>=1.0.0
+
+# ── Evaluation pipeline (orchestrator_rag_eval.py) ────────────────────────────
+# Install only when you want to run RAGAS evaluation:
+#   pip install ragas langchain-openai openai
+ragas>=0.2.0
+langchain-openai>=0.1.0
+openai>=1.0.0
+langchain-community>=0.2.0

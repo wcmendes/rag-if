@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "question": "Quem exerce a presidência do Conselho Diretor e quem pode substituí-lo?",
+    "ground_truth": "A presidência do Conselho Diretor é exercida pelo Diretor-Geral, que pode ser substituído por seu substituto legal em caso de ausência ou impedimento."
+  },
+  {
+    "id": 2,
+    "question": "Quais são os critérios de nota e frequência para obter certificado em um Curso FIC?",
+    "ground_truth": "O discente deve obter média 7,0 em cada componente curricular e frequência mínima de 75% da carga horária total do curso."
+  },
+  {
+    "id": 3,
+    "question": "É permitido agendar atividades letivas aos domingos no calendário acadêmico?",
+    "ground_truth": "Não. É vedada a previsão de domingos como dias letivos nos Calendários Acadêmicos."
+  }
+]
