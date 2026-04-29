@@ -33,7 +33,7 @@ from typing import Any
 
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 # ── Logging ────────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -502,9 +502,13 @@ def _run_ragas_v2(mapped: list[dict[str, Any]]) -> Any:
 
     try:
         from ragas import RunConfig  # noqa: PLC0415
-        # Local models (Ollama) handle one request at a time.
-        # max_workers=1 prevents parallel calls that overwhelm the local server.
-        run_config = RunConfig(timeout=600, max_retries=2, max_wait=60, max_workers=1)
+        provider = os.getenv("RAGAS_LLM_PROVIDER", "openai").lower()
+        if provider == "ollama":
+            # Local models handle one request at a time
+            run_config = RunConfig(timeout=600, max_retries=2, max_wait=60, max_workers=1)
+        else:
+            # Cloud APIs handle concurrent requests well
+            run_config = RunConfig(timeout=120, max_retries=3, max_wait=60, max_workers=8)
     except ImportError:
         run_config = None
 
