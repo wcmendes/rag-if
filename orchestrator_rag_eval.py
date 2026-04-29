@@ -502,8 +502,9 @@ def _run_ragas_v2(mapped: list[dict[str, Any]]) -> Any:
 
     try:
         from ragas import RunConfig  # noqa: PLC0415
-        # DeepSeek R1 and other local models can be very slow — allow up to 10 min per call
-        run_config = RunConfig(timeout=600, max_retries=3, max_wait=120)
+        # Local models (Ollama) handle one request at a time.
+        # max_workers=1 prevents parallel calls that overwhelm the local server.
+        run_config = RunConfig(timeout=600, max_retries=2, max_wait=60, max_workers=1)
     except ImportError:
         run_config = None
 
