@@ -261,22 +261,15 @@ def map_to_ragas_schema(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def configure_ragas_models() -> tuple[Any, Any]:
     """
-    Configure and return (llm_wrapper, embeddings_wrapper) for RAGAS.
+    Configure and return (llm, embeddings) for RAGAS using the native 0.4.x API.
 
     Env vars:
       RAGAS_LLM_PROVIDER    = openai | ollama           (default: openai)
-      RAGAS_JUDGE_MODEL     = model name                (default: gpt-4o)
+      RAGAS_JUDGE_MODEL     = model name                (default: gpt-4o-mini)
       RAGAS_EMBEDDING_MODEL = embedding model name      (default: text-embedding-3-small)
       OPENAI_API_KEY        = required when provider=openai
       OLLAMA_URL            = Ollama base URL           (default: http://localhost:11434)
     """
-    try:
-        from ragas.llms import LangchainLLMWrapper  # noqa: PLC0415
-        from ragas.embeddings import LangchainEmbeddingsWrapper  # noqa: PLC0415
-    except ImportError as exc:
-        logger.error("Could not import ragas wrappers: %s", exc)
-        sys.exit(1)
-
     provider = os.getenv("RAGAS_LLM_PROVIDER", "openai").lower()
 
     if provider == "openai":
@@ -287,35 +280,33 @@ def configure_ragas_models() -> tuple[Any, Any]:
                 "Set it in your .env file."
             )
             sys.exit(1)
+
         try:
-            from langchain_openai import ChatOpenAI, OpenAIEmbeddings  # noqa: PLC0415
-        except ImportError:
-            logger.error("langchain-openai not installed. Run: pip install langchain-openai")
+            from openai import OpenAI  # noqa: PLC0415
+            from ragas.llms import llm_factory  # noqa: PLC0415
+            from ragas.embeddings import OpenAIEmbeddings as RagasOpenAIEmbeddings  # noqa: PLC0415
+        except ImportError as exc:
+            logger.error("Missing dependency: %s — run: pip install ragas openai", exc)
             sys.exit(1)
 
-        judge_model = os.getenv("RAGAS_JUDGE_MODEL", "gpt-4o")
+        judge_model = os.getenv("RAGAS_JUDGE_MODEL", "gpt-4o-mini")
         emb_model = os.getenv("RAGAS_EMBEDDING_MODEL", "text-embedding-3-small")
-        llm = LangchainLLMWrapper(
-            ChatOpenAI(model=judge_model, temperature=0, api_key=api_key)
-        )
-        embeddings = LangchainEmbeddingsWrapper(
-            OpenAIEmbeddings(model=emb_model, api_key=api_key)
-        )
+        openai_client = OpenAI(api_key=api_key)
+        llm = llm_factory(judge_model, provider="openai", client=openai_client)
+        embeddings = RagasOpenAIEmbeddings(client=openai_client, model=emb_model)
         logger.info("RAGAS judge  : OpenAI %s", judge_model)
         logger.info("RAGAS embeds : OpenAI %s", emb_model)
 
     elif provider == "ollama":
         try:
             from langchain_ollama import ChatOllama, OllamaEmbeddings  # noqa: PLC0415
-        except ImportError:
-            try:
-                from langchain_community.chat_models import ChatOllama  # noqa: PLC0415
-                from langchain_community.embeddings import OllamaEmbeddings  # noqa: PLC0415
-            except ImportError:
-                logger.error(
-                    "langchain-ollama not installed. Run: pip install langchain-ollama"
-                )
-                sys.exit(1)
+            from ragas.llms import LangchainLLMWrapper  # noqa: PLC0415
+            from ragas.embeddings import LangchainEmbeddingsWrapper  # noqa: PLC0415
+        except ImportError as exc:
+            logger.error(
+                "Missing dependency: %s — run: pip install langchain-ollama", exc
+            )
+            sys.exit(1)
 
         ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434")
         judge_model = os.getenv("RAGAS_JUDGE_MODEL", "llama3.2")
