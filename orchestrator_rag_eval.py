@@ -292,7 +292,7 @@ def configure_ragas_models() -> tuple[Any, Any]:
 
         judge_model = os.getenv("RAGAS_JUDGE_MODEL", "gpt-4o-mini")
         emb_model = os.getenv("RAGAS_EMBEDDING_MODEL", "text-embedding-3-small")
-        llm = llm_factory(judge_model, provider="openai", client=OpenAI(api_key=api_key))
+        llm = llm_factory(judge_model, provider="openai", client=OpenAI(api_key=api_key), max_tokens=4096)
         embeddings = LangchainEmbeddingsWrapper(LCOpenAIEmbeddings(model=emb_model, api_key=api_key))
         logger.info("RAGAS judge  : OpenAI %s (native)", judge_model)
         logger.info("RAGAS embeds : OpenAI %s", emb_model)
@@ -393,7 +393,14 @@ def _load_metrics_v2() -> list[Any]:
             logger.warning("Metric '%s' not found — skipping", label)
             continue
         try:
-            loaded.append(cls())
+            instance = cls()
+            # AnswerRelevancy requests n=strictness generations per answer.
+            # OpenAI structured output mode (used by llm_factory/Instructor) does not
+            # support n>1, so it always returns 1 and emits a warning. Setting
+            # strictness=1 makes the behaviour explicit and eliminates the warning.
+            if hasattr(instance, "strictness"):
+                instance.strictness = 1
+            loaded.append(instance)
             loaded_names.append(found_name)
         except Exception as exc:
             logger.warning("Could not instantiate %s: %s — skipping", found_name, exc)
@@ -498,8 +505,8 @@ def _run_ragas_v2(mapped: list[dict[str, Any]]) -> Any:
             # Local models handle one request at a time
             run_config = RunConfig(timeout=600, max_retries=2, max_wait=60, max_workers=1)
         else:
-            # Cloud APIs handle concurrent requests well
-            run_config = RunConfig(timeout=120, max_retries=3, max_wait=60, max_workers=8)
+            # Cloud APIs — lower workers to avoid rate limit cascades on large contexts
+            run_config = RunConfig(timeout=600, max_retries=3, max_wait=90, max_workers=4)
     except ImportError:
         run_config = None
 
