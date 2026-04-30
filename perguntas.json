@@ -590,7 +590,7 @@
   {
     "id": 99,
     "question": "Quais datas compõem o calendário de reuniões do Conselho Diretor do IFMA Campus Zé Doca para o ano de 2025, conforme a Resolução nº 3/2025?",
-    "ground_truth": "Não encontrei evidências suficientes nos documentos indexados para responder a esta pergunta. O arquivo 1377.md contém o Calendário de Reuniões Ordinárias do Conselho Diretor do IFMA Campus Zé Doca para 2025 aprovado por resolução específica, porém o conteúdo detalhado com as datas não estava disponível no trecho lido do documento.",
+    "ground_truth": "Não encontrei evidências suficientes nos documentos indexados para responder a esta pergunta. O documento referenciado como fonte desta questão (1377.md) trata da Estratégia de Uso de Software e Serviços de Computação em Nuvem do IFMA, aprovada pelo Comitê de Governança Digital, e não contém informações sobre calendário de reuniões do Conselho Diretor.",
     "source": "1377.md"
   },
   {
