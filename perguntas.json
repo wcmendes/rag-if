@@ -1,577 +1,602 @@
 [
   {
     "id": 1,
-    "question": "Quem exerce a presidência do Conselho Diretor (CONDIR) no âmbito dos Campi e quem pode substituí-lo?",
-    "ground_truth": "A presidência do CONDIR é exercida pelo Diretor-Geral. Em sua ausência ou impedimento, será substituído por seu substituto legal, indicado pelo Diretor-Geral ou, conforme o regimento de alguns campi, pelo Conselheiro mais antigo na Instituição, presente na sessão. (Baseado nos Regimentos Internos do CONDIR dos campi Zé Doca, Santa Inês e Codó)."
+    "question": "Qual é o prazo para emissão de diplomas de cursos técnicos no IFMA/Campus Bacabal?",
+    "ground_truth": "O prazo é de até 45 dias para diplomas de cursos técnicos, contados da data de protocolo, para estudantes com aproveitamento e frequência suficientes.",
+    "source": "269.md"
   },
   {
     "id": 2,
-    "question": "Sob quais condições um conselheiro perde o mandato no CONDIR por motivo de ausência?",
-    "ground_truth": "O conselheiro perderá o mandato se faltar, sem justificativa ou quando a justificativa for julgada improcedente pelos seus pares, a duas (02) ou mais reuniões ordinárias e/ou extraordinárias, consecutivas ou três (03) intercaladas no período de 2 anos. (Baseado nos Regimentos Internos do CONDIR dos campi)."
+    "question": "Em quais locais é vedada a instalação de câmeras de monitoramento no Campus São João dos Patos?",
+    "ground_truth": "É vedada a instalação de câmeras de monitoramento nos seguintes locais: salas de aula, banheiros, lavabos, sala de professores, ambientes de repouso e os destinados aos serviços médicos ou de medicina do trabalho, por violar dispositivos constitucionais fundamentais como a intimidade, vida privada, honra e imagem.",
+    "source": "145.md"
   },
   {
     "id": 3,
-    "question": "Qual é a carga horária mínima estabelecida para a oferta dos Cursos de Formação Inicial e Continuada (FIC)?",
-    "ground_truth": "Os cursos FIC deverão observar o mínimo de 160 (cento e sessenta) horas. (Baseado no Regulamento dos Cursos FIC)."
+    "question": "Qual é o prazo de armazenamento das gravações no sistema CFTV do Campus Timon?",
+    "ground_truth": "As gravações devem ser armazenadas pelo prazo de 10 dias.",
+    "source": "677.md"
   },
   {
     "id": 4,
-    "question": "Quais são os critérios de nota e frequência exigidos para que o aluno receba o certificado de conclusão em um Curso FIC?",
-    "ground_truth": "Para a avaliação do rendimento escolar, somente receberão certificados os discentes que obtiverem média 7,0 (sete) em cada componente curricular e frequência de 75% da carga horária total do curso. (Baseado no Regulamento dos Cursos FIC)."
+    "question": "O regulamento de CFTV do Campus São João dos Patos e o do Campus Timon estabelecem o mesmo prazo mínimo de armazenamento de gravações?",
+    "ground_truth": "Não. Os dois documentos apresentam prazos diferentes. O Regulamento do Campus São João dos Patos estabelece que as gravações devem ser armazenadas pelo prazo mínimo de 30 dias. O Regulamento do Campus Timon (Resolução N° 2/2024 - CONDIR-TMN) estabelece que as gravações devem ser armazenadas pelo prazo de 10 dias.",
+    "source": "145.md, 677.md"
   },
   {
     "id": 5,
-    "question": "Na elaboração dos Calendários Acadêmicos, é permitido agendar atividades letivas aos domingos?",
-    "ground_truth": "Não. O documento é taxativo ao afirmar que é vedada a previsão de domingos como dias letivos. (Baseado nas Diretrizes para elaboração dos calendários acadêmicos)."
+    "question": "Em quais situações um conselheiro perde o mandato no CONDIR do Campus Zé Doca?",
+    "ground_truth": "Perderá o mandato o conselheiro que: I - faltar, sem justificativa ou quando a justificativa for julgada improcedente pelos seus pares, a duas (02) ou mais reuniões ordinárias e/ou extraordinárias, consecutivas ou três (03) intercaladas no período de 2 anos; II - vir a ter exercício profissional ou representatividade diferente daquele que determinou sua nomeação; III - em sendo servidor do Campus, em caso de aposentadoria, exoneração ou demissão; IV - em sendo discente do Campus, em caso de perda do vínculo com a Instituição; V - infringir disposição legal; VI - for condenado, por crime de qualquer natureza, com sentença penal transitado em julgado; VII - se representante da sociedade civil perder o vínculo da representação com a entidade ou órgão representado; VIII - revelar conduta incompatível com o exercício do mandato.",
+    "source": "106.md"
   },
   {
     "id": 6,
-    "question": "Quantos sábados podem ser utilizados como dias letivos ao longo de um mês nos Calendários Acadêmicos?",
-    "ground_truth": "É permitida a previsão de até 3 sábados, por mês, como dias letivos. (Baseado nas Diretrizes para elaboração dos calendários acadêmicos)."
+    "question": "Em qual percentual de ausências o membro de comissão é desligado no Campus São Raimundo das Mangabeiras?",
+    "ground_truth": "O membro designado para integrar a comissão que apresentar mais de 25% de ausências nas atividades, tomando como referência o calendário previamente agendado e as atividades extraordinárias acordadas, será desligado da mesma.",
+    "source": "376.md"
   },
   {
     "id": 7,
-    "question": "Quem é o responsável por presidir as reuniões do Conselho de Classe de cada turma/curso?",
-    "ground_truth": "A composição define que a presidência cabe ao Coordenador do Curso como presidente. (Baseado no Regulamento do Conselho de Classe do Campus Pedreiras)."
+    "question": "O que acontece se um mesmo Projeto de Pesquisa for recusado por duas vezes no IFMA/Campus Bacabal?",
+    "ground_truth": "Se um mesmo projeto for recusado por duas vezes, este não poderá ser reapresentado, ficando o acadêmico reprovado no componente disciplinar.",
+    "source": "363.md"
   },
   {
     "id": 8,
-    "question": "O que deve fazer o professor que estiver legalmente impedido de comparecer à reunião do Conselho de Classe?",
-    "ground_truth": "O docente deverá enviar, por escrito à Coordenação de Curso, até vinte e quatro (24) horas antes da data de realização do Conselho, um relatório contendo as avaliações de seu trabalho pedagógico e a análise do desenvolvimento da aprendizagem de seus alunos e de sua(s) turma(s). (Baseado no Regulamento do Conselho de Classe do Campus Pedreiras)."
+    "question": "Das decisões do Colegiado do PPGQ do IFMA, cabe recurso em que prazo e para qual instância?",
+    "ground_truth": "Das decisões do Colegiado caberá recurso, no prazo de cinco (05) dias corridos para o Conselho Superior, iniciando o processo por meio da Diretoria de Pesquisa e Pós-graduação do Campus São Luís Monte Castelo (DPPGI).",
+    "source": "1851.md"
   },
   {
     "id": 9,
-    "question": "Qual é o prazo máximo de validade caso um Campus decida pela desativação temporária de um curso?",
-    "ground_truth": "A desativação temporária terá validade de até 2 anos a contar da data indicada para seu início. Após isso, o campus pode solicitar prorrogação do prazo por um período de até 02 (dois) anos, sendo esta prorrogação única. (Baseado no Regulamento para criação, reformulação e extinção de cursos)."
+    "question": "Quantos membros compõem o Colegiado do PPGMEC?",
+    "ground_truth": "O Colegiado do PPGMEC será integrado por 12 (doze) membros.",
+    "source": "1079.md"
   },
   {
     "id": 10,
-    "question": "No Campus Bacabal, qual é o prazo regulamentar para a emissão de diplomas de cursos técnicos?",
-    "ground_truth": "O prazo estipulado é de até 45 dias para diplomas de cursos técnicos, contados da data de protocolo, para estudantes com aproveitamento e frequência suficientes. (Baseado no Regulamento Interno sobre emissão de certificados e diplomas do Campus Bacabal)."
+    "question": "Qual é o critério para inclusão de nova instituição associada ao PPG-BIONORTE?",
+    "ground_truth": "O critério para inclusão de instituição associada ao programa é a obrigatoriedade da instituição possuir no mínimo três (3) docentes participando como membros permanentes e/ou colaboradores no PPG-BIONORTE.",
+    "source": "813.md"
   },
   {
     "id": 11,
-    "question": "Qual é a carga horária mínima de funcionamento semanal exigida para o espaço de inovação e laboratório MaraMaker?",
-    "ground_truth": "O espaço deverá ficar aberto por pelo menos 20 horas semanais, podendo ser distribuídas ao longo dos 3 turnos diários e no mínimo um dia (8h) por semana para toda comunidade externa. (Baseado no Regimento Interno do MaraMaker / Lab IFMaker)."
+    "question": "Qual é a duração mínima e máxima do período de um Curso FIC no IFMA?",
+    "ground_truth": "O período de duração do Curso FIC deverá ser de no mínimo três dias e no máximo 12 (doze) meses.",
+    "source": "231.md"
   },
   {
     "id": 12,
-    "question": "No Campus São João dos Patos, qual é o tempo máximo de vigência permitido para as comissões internas?",
-    "ground_truth": "As comissões locais não podem ter vigência superior a 01 (um) ano. (Baseado na Regulamentação de Comissões Locais do Campus São João dos Patos)."
+    "question": "No CONDIR do Campus Viana, com que antecedência mínima os conselheiros devem justificar suas ausências às reuniões?",
+    "ground_truth": "As ausências de Conselheiros às reuniões ordinárias e/ou extraordinárias do CONDIR devem ser justificadas, por escrito, com o mínimo de 3 (três) dias de antecedência da reunião para a qual foram convocados.",
+    "source": "390.md"
   },
   {
     "id": 13,
-    "question": "Com qual antecedência mínima o docente deve formalizar o pedido para realizar a substituição ou permuta programada de aulas no Campus São João dos Patos?",
-    "ground_truth": "O formulário preenchido deve ser entregue para o Chefe do Departamento de Ensino (DEN) com uma antecedência mínima de 3 (três) dias úteis antes da aula a ser ministrada. (Baseado na Instrução Normativa Docente Nº 04/2021)."
+    "question": "Quais tipos de pesquisa são regulamentados pela Instrução Normativa da PRPGI/IFMA sobre procedimentos de pesquisa envolvendo servidores e estudantes?",
+    "ground_truth": "De acordo com o documento, a Instrução Normativa estabelece orientações e procedimentos para realização de pesquisa que envolva, de forma direta ou indireta, servidores e/ou estudantes e/ou prestadores de serviço do IFMA em ambiente virtual, pelo uso de ferramentas digitais para coleta de dados, como a aplicação de questionários on-line. O documento especifica ainda que o questionário é uma ferramenta de pesquisa autopreenchida pelo participante, sendo dispensada a interação sincrônica dele com o pesquisador, utilizando ferramentas próprias de formulário ou pesquisa online, que produzem um banco de dados, podendo o participante ser identificado ou não.",
+    "source": "in_71.md"
   },
   {
     "id": 14,
-    "question": "Uma unidade do IFMA pode propor a criação de um novo curso de graduação se já possuir outro curso em protocolo de compromisso junto ao MEC?",
-    "ground_truth": "Não. A regra determina que o campus com curso de graduação em protocolo de compromisso não poderá propor a criação de novo curso antes de comprovar o cumprimento do referido protocolo validado pelo Relatório de avaliação do MEC. (Baseado no Regulamento para criação e extinção de cursos)."
+    "question": "Qual é a composição da Comissão Central de Elaboração do PDP 2026 do IFMA e quem a indica?",
+    "ground_truth": "Conforme o documento, o Reitor indicará a Comissão Central de Elaboração do PDP 2026, que será composta por 5 (cinco) representantes da Pró-Reitoria de Planejamento e Desenvolvimento Institucional. As reuniões com os membros das comissões locais estão programadas para os dias 04 de agosto de 2026 e 14 de setembro de 2026, via Google Meet.",
+    "source": "in_125.md"
   },
   {
     "id": 15,
-    "question": "Qual é o tempo máximo que uma disciplina já cursada possui de validade para que um aluno de Graduação solicite o seu Aproveitamento de Estudos no Campus Bacabal?",
-    "ground_truth": "A regra estabelece que a disciplina, objeto do Aproveitamento de Estudos, deverá ter sido cursada no prazo máximo de 8 (oito) anos. (Baseado nas Normas para Aproveitamento de Estudos do Campus Bacabal)."
+    "question": "Em quais datas foram previstas as reuniões com as Comissões Locais para elaboração do PDP 2025 do IFMA e qual o meio utilizado?",
+    "ground_truth": "De acordo com o documento, as reuniões com as Comissões Locais do PDP 2025 foram previstas para os dias 02 de agosto de 2024 e 16 de setembro de 2024, via Google Meet, com o objetivo de esclarecer a nova metodologia e os procedimentos a serem seguidos para a elaboração do PDP 2025 em cada Unidade.",
+    "source": "in_116.md"
   },
   {
     "id": 16,
-    "question": "Um estudante matriculado em mais de um curso no IFMA pode receber múltiplas bolsas de incentivo à permanência?",
-    "ground_truth": "Não, o estudante tem direito a receber apenas 1 (uma) bolsa de incentivo à permanência por CPF, independentemente do número de matrículas ativas que possua na instituição. As bolsas também não são cumuláveis entre si nem com as bolsas de assistência secundária."
+    "question": "Quem exerce o perfil de Representante Operacional no processo de elaboração do PDP 2024 do IFMA e quais são suas atribuições no sistema SIPEC?",
+    "ground_truth": "Conforme o documento, o perfil de Representante Operacional no SIPEC será atribuído ao chefe da Unidade de Gestão de Pessoas do Campus. Suas atribuições são: consolidar necessidades validadas que tenham escopo aproximado; priorizar quais necessidades entrarão no PDP do IFMA; e detalhar eventuais soluções já reconhecidas para as necessidades priorizadas, com dados que facilitem a análise pelo Órgão Central do SIPEC e Enap acerca de disponibilidade e oferta de ações.",
+    "source": "in_86.md"
   },
   {
     "id": 17,
-    "question": "Qual é a carga horária semanal exigida para a atuação de um aluno no Programa de Monitoria?",
-    "ground_truth": "O aluno monitor deve dedicar no mínimo 8 horas e no máximo 12 horas semanais às atividades do programa, destinando obrigatoriamente 25% dessa carga horária para o planejamento, estudo e orientação."
+    "question": "Quantos servidores podem compor o Grupo de Trabalho/Usuário PDP no processo de elaboração do PDP 2023 do IFMA e qual servidor está impedido de integrá-lo?",
+    "ground_truth": "Segundo o documento, o Grupo de Trabalho/Usuário PDP deverá ser de, no máximo, 5 (cinco) servidores, podendo ser 1 (um) representante do Ensino, 1 (um) representante da Pesquisa, 1 (um) representante da Extensão e 1 (um) representante da Administração. O documento estabelece expressamente que o chefe da Unidade de Gestão de Pessoas do Campus não poderá compor esse grupo.",
+    "source": "in_64.md"
   },
   {
     "id": 18,
-    "question": "Qual é o objetivo principal do Programa Licenciar?",
-    "ground_truth": "O objetivo principal do Programa Licenciar é potencializar a formação docente dos estudantes dos cursos de licenciatura, promovendo a integração entre a instituição de ensino superior e a escola de educação básica, garantindo assim a indissociabilidade entre a teoria e a prática."
+    "question": "Quais valores são excluídos do cálculo da Renda Bruta Familiar Per Capita no processo de análise socioeconômica (IVS) dos estudantes do IFMA, segundo a Instrução Normativa da Prenae baseada na Resolução CONSUP n° 147/2022?",
+    "ground_truth": "De acordo com o documento, estão excluídos do cálculo da Renda Bruta Familiar Per Capita: os valores recebidos a título de 13º salário, 1/3 de férias, auxílios para alimentação e transporte, diárias e reembolsos de despesas, adiantamentos e antecipações, estornos e compensações de períodos anteriores, indenizações decorrentes de contratos de seguros, e indenizações por danos materiais e morais por força de decisão judicial. Também estão excluídos os rendimentos recebidos no âmbito dos seguintes programas: Programa Bolsa Família, Programa de Fortalecimento de Vínculos, Auxílio Emergencial Financeiro e outros programas de transferência de renda destinados à população atingida por desastres em municípios em calamidade pública, demais programas de transferência condicionada de renda implementados por Estados, Distrito Federal ou Municípios, e os auxílios financeiros decorrentes do atendimento pelos Programas da Política de Assistência Estudantil do IFMA.",
+    "source": "in_6.md"
   },
   {
     "id": 19,
-    "question": "O IFMA pode cobrar alguma taxa administrativa para a emissão e registro de segunda via do diploma digital e do histórico escolar?",
-    "ground_truth": "Não, a emissão e o registro de segunda via do diploma digital e do histórico escolar não ensejam a cobrança de nenhuma taxa, caracterizando isenção total, pois estão incluídos nos serviços educacionais prestados pela instituição."
+    "question": "Quais são os cinco eixos temáticos estabelecidos para execução dos Projetos de Ensino no IFMA conforme a Instrução Normativa baseada na Resolução CONSUP N° 01/2025?",
+    "ground_truth": "Conforme o documento, os eixos temáticos estabelecidos para execução dos projetos de ensino no IFMA são: I - Ensino-Aprendizagem Inovadores; II - Esporte e Lazer; III - Ensino, Arte e Cultura; IV - Tecnologia e Ensino; e V - Acesso, Permanência e Êxito.",
+    "source": "in_108.md"
   },
   {
     "id": 20,
-    "question": "O que acontece com a concessão da bolsa de assistência estudantil se o aluno não prestar contas do auxílio no prazo estipulado?",
-    "ground_truth": "A concessão do auxílio será suspensa, ocorrendo o mesmo nos casos em que o estudante apresentar frequência mínima mensal inferior a 75%, for reincidente em medida disciplinar leve/média ou prestar informações falsas."
+    "question": "Quem deve ser designado, via portaria do Diretor Geral, como Coordenador local de Programa e Projetos de Ensino em cada campus do IFMA, conforme a IN baseada na Resolução CONSUP N° 18/2021?",
+    "ground_truth": "De acordo com o documento, cada campus deverá designar, via portaria do Diretor Geral, o Coordenador local de Programa e Projetos de Ensino, que deverá ser o Diretor de Desenvolvimento Educacional (DDE) do Campus ou equivalente, ou Chefe do Departamento de Ensino ou equivalente. O documento prevê ainda que, no campus em que o Coordenador local for o Chefe do Departamento de Ensino ou equivalente, o DDE poderá delegar a este Coordenador todas ou parte das atribuições que lhe são conferidas na Resolução Consup/IFMA Nº 18/2021.",
+    "source": "in_109.md"
   },
   {
     "id": 21,
-    "question": "O processo eleitoral para a escolha de Reitor e Diretores-gerais dos campi do IFMA é realizado em quantos turnos?",
-    "ground_truth": "O processo eleitoral para a escolha de Reitor e de Diretores-gerais dos campi do IFMA é realizado em turno único."
+    "question": "Quais são as fases que compõem a formalização e consecução de parcerias junto ao IFMA, conforme a Instrução Normativa de Formalização de Parcerias Interinstitucionais?",
+    "ground_truth": "Segundo o documento, as fases que compõem a formalização e consecução de parcerias junto ao IFMA são: negociação, proposição, tramitação, análise técnica, análise jurídica, celebração, monitoramento, execução, avaliação, renovação e encerramento da parceria.",
+    "source": "in_12.md"
   },
   {
     "id": 22,
-    "question": "É permitido que um estudante participe do Programa de Monitoria caso ele tenha registro de sanção disciplinar na instituição?",
-    "ground_truth": "Não, o regulamento de monitoria proíbe categoricamente a aceitação de estudantes como monitores caso possuam registro disciplinar nos últimos 12 meses comprovado em seus assentamentos acadêmicos."
+    "question": "Quais são os componentes do estudo socioeconômico dos estudantes candidatos aos programas da Política de Assistência Estudantil (PAE) do IFMA, conforme a Instrução Normativa baseada na Resolução Conepe nº 1/2026?",
+    "ground_truth": "Conforme o documento, o estudo socioeconômico será composto por: I - análise do questionário socioeconômico e da documentação comprobatória; II - consulta e migração de dados do Cadastro Único; III - entrevista social, se necessário; IV - entrevista em domicílio, se necessário; V - aplicação da fórmula de indicadores socioeconômicos do IVS; e VI - validação do IVS do estudante pelo assistente social.",
+    "source": "in_23.md"
   },
   {
     "id": 23,
-    "question": "Como fica a situação da bolsa de uma estudante vinculada ao Programa Licenciar caso ela precise se afastar por licença maternidade?",
-    "ground_truth": "A concessão da bolsa será mantida normalmente durante todo o período da licença maternidade. O plano de atividades da licencianda bolsista será adaptado para que os objetivos do projeto sejam cumpridos."
+    "question": "Qual é o prazo para elaboração e envio do PATCG pelos cursos já avaliados com relatório de avaliação externa/INEP ou interna/Prenae com data a partir de 2020, conforme a IN que revoga a IN n° 14/2022?",
+    "ground_truth": "De acordo com o documento, para o Ciclo III — cursos já avaliados e com relatório de avaliação externa/INEP e/ou interna/Prenae com data a partir de 2020 — o prazo para elaboração e envio do PATCG é de até 45 dias após a publicação desta Instrução Normativa. A partir de 2025, os cursos com PATCG deverão atualizá-lo ao final de sua vigência e enviá-lo observando o prazo de 45 dias após o vencimento do referido PATCG.",
+    "source": "in_133.md"
   },
   {
     "id": 24,
-    "question": "O Auxílio Creche é destinado ao cuidado de dependentes de estudantes do IFMA até qual idade?",
-    "ground_truth": "O Auxílio Creche destina-se a custear parte das despesas de discentes em situação de vulnerabilidade com dependentes em idade pré-escolar, ou seja, crianças de zero a seis anos incompletos."
+    "question": "Quais são as etapas previstas para a construção do PATCG (Plano de Ação Trienal dos Cursos de Graduação) no IFMA, conforme a Instrução Normativa da Prenae baseada na Resolução CONSUP N° 48/2021?",
+    "ground_truth": "Conforme o documento, a construção do PATCG deverá ser realizada seguindo as seguintes etapas: I - reunião do NDE de cada curso para elaboração do PATCG; II - apreciação e emissão de parecer pelo Colegiado do Curso; III - envio do PATCG, via processo eletrônico endereçado ao Departamento de Graduação/Prenae, para parecer técnico da CGRAD; IV - análise do PATCG e emissão de Parecer Técnico pela CGRAD; V - envio do parecer técnico pelo Departamento de Graduação ao campus; VI - avaliação do parecer técnico pelo NDE, realizando os ajustes sugeridos se necessário; VII - envio do PATCG ao Conselho Diretor do Campus; VIII - apreciação e aprovação do PATCG no Conselho Diretor do Campus (CONDIR); IX - publicação do PATCG na página do curso e envio da versão final à DEGRAD para acompanhamento.",
+    "source": "in_9.md"
   },
   {
     "id": 25,
-    "question": "A qual órgão a Procuradoria Jurídica (PROJUR) do IFMA está vinculada organizacionalmente e a qual órgão federal ela responde como unidade de execução?",
-    "ground_truth": "A Procuradoria Jurídica do IFMA está vinculada organizacionalmente à Reitoria da instituição e atua como órgão de execução da Procuradoria-Geral Federal, a qual é vinculada à Advocacia-Geral da União."
+    "question": "Qual é a ordem de preferência para instalação dos polos EaD do IFMA e quais são os trâmites para criação de polos externos aos campi?",
+    "ground_truth": "Segundo o documento, os polos EaD serão instalados preferencialmente nos seguintes espaços, considerando a seguinte ordem: I - campi e Centros de Referência Educacionais do IFMA; II - escolas públicas e Universidades públicas; III - instalações comunitárias. Quanto aos trâmites para criação de polos EaD externos aos campi, o processo observará: I - abertura com ofício da autoridade competente do município solicitando a criação do polo EaD ao Reitor e minuta do Acordo de Cooperação Técnica preenchida; II - inclusão do ofício do Diretor Geral declarando o interesse do vínculo administrativo do campus com o polo EaD; III - análise de conformidade da Prenae; IV - ciência do Certec; V - emissão de Resolução de criação do polo EaD pelo Consup; VI - retorno à Prenae para registro e providências quanto à autorização de funcionamento.",
+    "source": "in_48.md"
   },
   {
     "id": 26,
-    "question": "O aluno monitor tem permissão para elaborar e aplicar instrumentos de avaliação para os alunos monitorados?",
-    "ground_truth": "Em regra, não. O aluno monitor é proibido de elaborar e aplicar instrumentos de avaliação, sendo isso permitido exclusivamente em casos de simulação e apenas quando expressamente autorizado pelo professor orientador."
+    "question": "Qual é a composição máxima do Banco de Avaliadores para Comissões de Heteroidentificação do IFMA e como se distribuem os membros por gênero, etnia e vínculo institucional?",
+    "ground_truth": "Conforme o documento, o Banco de Avaliadores é composto por até 150 (cento e cinquenta) membros, distribuídos nas seguintes proporções: I - 50% para o gênero feminino e 50% para o gênero masculino; II - 79,84% para pessoas autodeclaradas pretos e pardos; III - 62,5% de membros compostos por servidores do IFMA e 37,5% de membros compostos por profissionais externos. O prazo para utilização do cadastro reserva é de 2 anos a contar da homologação do resultado do edital.",
+    "source": "in_29.md"
   },
   {
     "id": 27,
-    "question": "É permitido o acúmulo de bolsas no âmbito do Programa Licenciar se o estudante atuar em mais de uma função no projeto?",
-    "ground_truth": "Não, o regulamento estabelece que é expressamente proibido o acúmulo de bolsas dentro do mesmo Programa para qualquer beneficiário participante."
+    "question": "Quais elementos devem constar obrigatoriamente nos ementários dos componentes curriculares de ACE e ECS nos cursos de licenciatura do IFMA, conforme a Instrução Normativa baseada na Resolução Consup/IFMA N° 53/2025?",
+    "ground_truth": "De acordo com o documento, os ementários deverão explicitar, de forma objetiva: I - Carga Horária; II - Créditos; III - Objetivos; IV - Ementa; e V - Referencial Bibliográfico (bibliografia básica e complementar). Os ementários dos componentes de Extensão Curricular deverão estar alinhados ao perfil do egresso e às diretrizes curriculares do curso, contemplar metodologias de diálogo com a comunidade externa, assegurar a carga horária mínima conforme o tipo de licenciatura e evidenciar a interação transformadora entre instituição e comunidade externa.",
+    "source": "in_27.md"
   },
   {
     "id": 28,
-    "question": "Se um estudante adquirir um equipamento tecnológico por meio do Auxílio Inclusão Digital, ele deverá devolver o aparelho ao final do curso?",
-    "ground_truth": "Não. A norma estabelece expressamente que, em caso de compra de equipamentos por meio deste programa específico, fica vedada a solicitação de devolução do equipamento pelo campus."
+    "question": "Quais são os indicadores socioeconômicos utilizados para o cálculo do IVS dos estudantes do IFMA, conforme a Instrução Normativa assinada pela Diretora de Educação no exercício da Pró-Reitoria de Ensino e Assuntos Estudantis?",
+    "ground_truth": "Segundo o documento, para o cálculo do IVS do estudante serão considerados os seguintes indicadores socioeconômicos: I - renda bruta familiar per capita; II - situação de emprego, trabalho ou ocupação do principal responsável financeiro; III - recebimento de benefícios sociais; IV - composição familiar; V - situação de moradia da família (condição/localização); VI - estudante em situação de mobilidade territorial; VII - estudante em situação de movimentos pendulares; VIII - grupo prioritário (indígena, quilombola, pessoa com deficiência); IX - situações excepcionais.",
+    "source": "in_83.md"
   },
   {
     "id": 29,
-    "question": "O que caracteriza a Monitoria Verticalizada nas normas do Instituto?",
-    "ground_truth": "A Monitoria Verticalizada é a modalidade na qual os estudantes dos cursos de graduação atuam como monitores de turmas ou de outros estudantes matriculados nos cursos técnicos de nível médio oferecidos pelo IFMA."
+    "question": "Por quanto tempo é constituída a Comissão de Assistência Estudantil Primária (CAEP) do IFMA, quem a designa e quem a coordena?",
+    "ground_truth": "Conforme o documento, a Comissão de Assistência Estudantil Primária (CAEP) será designada por portaria do diretor-geral do campus e será constituída pelo período de 1 (um) ano, sendo permitida a recondução. A CAEP será coordenada pelo chefe da unidade responsável pela gestão da assistência estudantil do campus.",
+    "source": "in_68.md"
   },
   {
     "id": 30,
-    "question": "Qual é o limite de renda per capita exigido para que um estudante possa ingressar nos Programas de Assistência Primária?",
-    "ground_truth": "Para participar, o estudante deve comprovar possuir uma renda per capita familiar de até um salário mínimo e meio, conforme as exigências do Programa Nacional de Assistência Estudantil (PNAES)."
+    "question": "Em quais condições cumulativas está autorizada a execução de aulas presenciais mediadas por tecnologia por docente em condição de mobilidade no IFMA?",
+    "ground_truth": "De acordo com o documento, a execução de aulas presenciais mediadas por tecnologia por docente em condição de mobilidade está autorizada em caráter excepcional e exclusivamente quando acumuladas, impreterivelmente, as seguintes condições: 1) quando não existam docentes na mesma área na UAR ou quando os docentes da respectiva área estejam com carga horária superior ao máximo permitido; 2) quando essa situação seja por motivos que não possibilitem ao IFMA contratar substituto e/ou não seja possível legalmente o retorno do referido docente à UAR para ministração do componente curricular em questão; 3) quando o campus não dispuser de recursos financeiros para viabilizar a vinda de docente de outro campus presencialmente para a ministração das aulas; 4) quando não for possível à administração o deslocamento de docentes em exercício provisório ou em condição de mobilidade para a ministração dessas aulas. O documento também veda expressamente a realização de aulas presenciais mediadas por tecnologia por docentes em seu próprio campus de exercício.",
+    "source": "in_119.md"
   },
   {
     "id": 31,
-    "question": "Qual é a fórmula utilizada para o cálculo do Índice de Melhoria da Qualidade (IMQ) dos Cursos de Graduação no IFMA?",
-    "ground_truth": "O cálculo é feito a partir da expressão: IMQ=(1 - AIC/5) x 100."
+    "question": "Quais são as etapas previstas para a elaboração do Plano de Implantação de Campus (PIC) no âmbito do IFMA?",
+    "ground_truth": "Conforme o documento, a elaboração do PIC deverá observar as seguintes etapas: I - constituição de comissão de implantação de campus (CIC); II - levantamento e sistematização de dados institucionais, regionais e socioeconômicos para subsidiar o PIC; III - realização da consulta pública; IV - finalização do documento; V - apreciação e aprovação; VI - divulgação do plano nos canais institucionais e nos municípios de abrangência da nova unidade. O documento estabelece ainda que o PIC deverá ser submetido à apreciação e aprovação do Reitor, após parecer técnico da Prenae.",
+    "source": "in_115.md"
   },
   {
     "id": 32,
-    "question": "Com que frequência os cursos de graduação do IFMA devem passar pela Avaliação Interna de Curso (AIC)?",
-    "ground_truth": "A Avaliação Interna de Curso (AIC) deve ocorrer a cada três anos."
+    "question": "Quais são os doze indicadores socioeconômicos que compõem o IVS dos estudantes do IFMA conforme a Instrução Normativa baseada na Resolução Conepe nº 1/2026?",
+    "ground_truth": "De acordo com o documento, os doze indicadores socioeconômicos para o cálculo do IVS são: I - Renda familiar bruta mensal per capita (RF); II - Situação de emprego, trabalho ou ocupação (SE); III - Recebimento de benefícios sociais (RBS); IV - Composição familiar (CF); V - Situação de moradia da família, condição (SMC); VI - Situação de moradia da família, localização (SML); VII - Estudante em situação de mobilidade territorial (MT); VIII - Grupo prioritário (GP); IX - Transporte utilizado (TR); X - Família monoparental (FM); XI - Egresso de escola pública ou privada (EESP); XII - Risco na permanência escolar (RPE).",
+    "source": "in_139.md"
   },
   {
     "id": 33,
-    "question": "Na Política de Assistência Estudantil (PAE), qual é o limite máximo estipulado para o acúmulo de bolsas e auxílios de transferência direta que um estudante pode receber?",
-    "ground_truth": "O teto máximo é de 75% (setenta e cinco por cento) do salário-mínimo vigente."
+    "question": "O que são Projetos de Ensino conforme definição da Instrução Normativa da Prenae baseada na Resolução CONSUP N° 18/2021, e com quais eixos temáticos eles devem ter relação?",
+    "ground_truth": "Conforme o documento, Projetos de Ensino são atividades curriculares, extracurriculares ou complementares que visam refletir e melhorar os processos de ensino e de aprendizagem nos diferentes cursos/áreas, complementando a formação dos estudantes com prazo determinado para seu encerramento. Os Projetos de Ensino institucionalizados no IFMA deverão ter relação com os seguintes Eixos Temáticos: I - Ensino-Aprendizagem Inovadores; II - Esporte e Lazer; III - Ensino, Arte e Cultura; IV - Tecnologia e Ensino; e V - Acesso, Permanência e Êxito.",
+    "source": "in_10.md"
   },
   {
     "id": 34,
-    "question": "A quem se destina especificamente o PAE Moradia?",
-    "ground_truth": "Destina-se a conceder apoio financeiro para estudantes que precisam se mudar para o município sede do campus devido ao curso."
+    "question": "Qual é a carga horária total de Estágio Supervisionado e Extensão prevista para uma Primeira Licenciatura, conforme o Anexo I da Instrução Normativa sobre ementários dos cursos de licenciatura do IFMA?",
+    "ground_truth": "De acordo com o documento, a carga horária total para uma Primeira Licenciatura é de 400 horas de Estágio Supervisionado e 340 horas de Extensão, distribuídas ao longo de 8 períodos da seguinte forma: 1º período: 40h de Estágio e 40h de Extensão; 2º período: 60h de Estágio e 0h de Extensão; 3º período: 0h de Estágio e 60h de Extensão; 4º período: 80h de Estágio e 0h de Extensão; 5º período: 0h de Estágio e 120h de Extensão; 6º período: 100h de Estágio e 0h de Extensão; 7º período: 0h de Estágio e 120h de Extensão; 8º período: 120h de Estágio e 0h de Extensão.",
+    "source": "in_53.md"
   },
   {
     "id": 35,
-    "question": "De acordo com o Regulamento do Programa de Gestão e Desempenho (PGD) na modalidade teletrabalho, qual é o prazo máximo que o servidor possui para retornar os contatos recebidos durante o horário de funcionamento do órgão?",
-    "ground_truth": "O prazo máximo é de uma hora."
+    "question": "Quais são os horários de funcionamento do Laboratório de Informática do IFMA Campus Carolina, conforme a Instrução Normativa Nº 01/2025?",
+    "ground_truth": "De acordo com a Instrução Normativa Nº 01/2025 do IFMA Campus Carolina, o Laboratório de Informática funcionará de segunda a sexta-feira nos seguintes horários: período matutino das 8h às 12h; período vespertino das 13h às 18h; e período noturno das 19h às 22h. O acesso fora desses horários dependerá de autorização prévia da Diretoria de Desenvolvimento Educacional ou da Direção-Geral.",
+    "source": "in_137.md"
   },
   {
     "id": 36,
-    "question": "Quais são os critérios de classificação e desempate para a adesão de servidores ao PGD (Teletrabalho), por ordem de precedência?",
-    "ground_truth": "A prioridade segue a seguinte ordem: 1º) Pessoas com deficiência, idosos, gestantes, lactantes, entre outros mencionados no parágrafo único do Art. 7º; 2º) Servidores com maior tempo de exercício no IFMA; 3º) Servidores com maior idade."
+    "question": "O tempo de deslocamento durante uma visita técnica pode ser contabilizado como carga horária do componente curricular no IFMA?",
+    "ground_truth": "Não. A instrução normativa estabelece expressamente que não é possível a contabilização, na carga horária do componente curricular, do tempo reservado exclusivamente para deslocamentos ou qualquer outra ação que não tenha ligação direta com os conteúdos que estão elencados para a respectiva atividade.",
+    "source": "in_77.md"
   },
   {
     "id": 37,
-    "question": "Qual é o requisito de cargo para ocupar a função de Coordenador da Rede de Bibliotecas Integradas (Redebi) do IFMA?",
-    "ground_truth": "A função deve ser ocupada obrigatoriamente por um servidor de cargo efetivo de bibliotecário/documentalista do IFMA."
+    "question": "Na avaliação in loco de cursos de graduação do IFMA, quais pesos são atribuídos a cada uma das três dimensões do instrumento de avaliação?",
+    "ground_truth": "Conforme a instrução normativa, o cálculo do conceito do curso considera os seguintes pesos: a dimensão 1 (Organização Didático-Pedagógica) com peso 40; a dimensão 2 (Corpo Docente e Tutorial) com peso 20; e a dimensão 3 (Infraestrutura) com peso 40.",
+    "source": "in_22.md"
   },
   {
     "id": 38,
-    "question": "No Programa Institucional Talentos Científicos, qual deve ser a destinação de materiais permanentes captados por equipes de competição após a conclusão dos trabalhos da equipe?",
-    "ground_truth": "Todos os materiais permanentes adquiridos deverão ser doados ao IFMA."
+    "question": "No Regimento Interno do Conselho Diretor do IFMA Campus Santa Inês, quem assume a presidência do CONDIR na ausência ou impedimento do Diretor-Geral?",
+    "ground_truth": "De acordo com o Regimento Interno do Conselho Diretor do IFMA Campus Santa Inês, na ausência ou impedimento do Diretor-Geral, a presidência do CONDIR será exercida: 1) por seu substituto legal, indicado pelo Diretor-Geral; ou 2) pelo Conselheiro mais antigo na Instituição, presente na sessão.",
+    "source": "146.md"
   },
   {
     "id": 39,
-    "question": "Qual deve ser a composição mínima das bancas multiprofissionais responsáveis por conduzir a Avaliação Biopsicossocial no IFMA?",
-    "ground_truth": "A banca deve ser composta, no mínimo, por um médico, um psicólogo e um assistente social."
+    "question": "No Regimento Interno do Conselho Diretor do IFMA Campus Coelho Neto, em que momento o Presidente do CONDIR dá posse ao Conselheiro titular e suplente?",
+    "ground_truth": "Conforme o Regimento Interno do Conselho Diretor do IFMA Campus Coelho Neto, o Presidente do CONDIR dará posse ao Conselheiro, titular e suplente, na primeira sessão que se seguir à sua nomeação.",
+    "source": "358.md"
   },
   {
     "id": 40,
-    "question": "No Comitê Assessor de Ações Inclusivas (CAAI), qual é a penalidade para o representante que faltar injustificadamente a duas reuniões consecutivas?",
-    "ground_truth": "O representante perderá o mandato."
+    "question": "De acordo com o Regimento Interno do Conselho Diretor do IFMA Campus Bacabal (406.md), um Conselheiro pode exercer mais de um voto em uma sessão?",
+    "ground_truth": "Não. O Regimento Interno do Conselho Diretor do IFMA Campus Bacabal estabelece que, sob nenhuma hipótese, um Conselheiro exercerá mais de um voto, exceto o voto de qualidade exercido pela Presidência do Conselho.",
+    "source": "406.md"
   },
   {
     "id": 41,
-    "question": "De quem é a responsabilidade pela publicação do conhecimento gerado no IFMA nas ações de Divulgação Científica, incluindo as parcerias com outras editoras?",
-    "ground_truth": "A responsabilidade é da Editora do IFMA (EDIFMA)."
+    "question": "No Regimento Interno do Conselho Diretor do IFMA Campus São Raimundo das Mangabeiras, qual é o prazo máximo para justificar ausência em reunião em casos fortuitos ou de força maior?",
+    "ground_truth": "Conforme o Regimento Interno do Conselho Diretor do IFMA Campus São Raimundo das Mangabeiras, os casos fortuitos ou de força maior deverão ser justificados posteriormente à sessão, em um prazo máximo de dois (02) dias úteis.",
+    "source": "375.md"
   },
   {
     "id": 42,
-    "question": "Até qual período do curso de graduação o estudante egresso de curso técnico pode ingressar por meio do Programa de Acesso Verticalizado (PAV)?",
-    "ground_truth": "O acesso pode ocorrer até o terceiro período do curso de graduação."
+    "question": "No Regimento Interno do Conselho Diretor do IFMA Campus São José de Ribamar, após quantas faltas injustificadas um Conselheiro perde o mandato?",
+    "ground_truth": "De acordo com o Regimento Interno do Conselho Diretor do IFMA Campus São José de Ribamar, perderá o mandato o Conselheiro que faltar, sem justificativa ou quando a justificativa for julgada improcedente pelos seus pares, a duas (02) ou mais reuniões ordinárias e/ou extraordinárias consecutivas, ou três (03) intercaladas no período de 2 anos.",
+    "source": "401.md"
   },
   {
     "id": 43,
-    "question": "De acordo com a Política de Programas e Projetos de Ensino (PPPE), qual é a carga horária mínima total exigida para o desenvolvimento de Projetos de Ensino?",
-    "ground_truth": "A carga horária mínima total é de 4 horas."
+    "question": "No Regimento Interno do Conselho Diretor do IFMA Campus Buriticupu, com quanto tempo de antecedência o processo de renovação dos componentes do Conselho deve ser iniciado?",
+    "ground_truth": "Conforme o Regimento Interno do Conselho Diretor do IFMA Campus Buriticupu, o processo de renovação dos componentes do Conselho deve ser iniciado noventa (90) dias antes do encerramento dos mandatos dos Conselheiros.",
+    "source": "382.md"
   },
   {
     "id": 44,
-    "question": "Para a conclusão excepcional e antecipada do último ano de curso técnico (norma gerada devido à greve), qual é a nota mínima necessária no processo avaliativo para aprovação?",
-    "ground_truth": "A nota mínima exigida para aprovação no processo avaliativo é de 7,0 (sete)."
+    "question": "De acordo com o Regulamento do Programa Licenciar do IFMA, qual é a carga horária mínima semanal de dedicação prevista para o Coordenador Institucional do programa?",
+    "ground_truth": "Conforme o Regulamento do Programa Licenciar do IFMA, a Coordenadoria Institucional do Licenciar será ocupada por um docente efetivo com dedicação de, preferencialmente, 10 horas semanais, no mínimo, para se dedicar às atividades previstas no regulamento.",
+    "source": "505.md"
   },
   {
     "id": 45,
-    "question": "Segundo o Regimento Interno do Comitê de Extensão (COEXT), quantas vezes ao ano o comitê deve se reunir ordinariamente?",
-    "ground_truth": "O COEXT deve se reunir ordinariamente 6 (seis) vezes ao ano."
+    "question": "Segundo o Regimento da Ouvidoria Institucional do IFMA aprovado pelo CONSUP, qual é a estrutura mínima de pessoal da Ouvidoria?",
+    "ground_truth": "De acordo com o Regimento da Ouvidoria Institucional do IFMA, a estrutura mínima da Ouvidoria Institucional compreende: um ouvidor-chefe e dois servidores para apoio técnico e administrativo.",
+    "source": "1712.md"
   },
   {
     "id": 46,
-    "question": "Qual é a idade mínima exigida para que um estudante do IFMA possa realizar estágio supervisionado?",
-    "ground_truth": "A idade mínima exigida para estagiar é de 16 anos."
+    "question": "No Regulamento para Criação, Reformulação, Desativação Temporária e Extinção de Cursos do IFMA, qual é a composição mínima da Comissão Técnica de Avaliação in loco para cursos de graduação?",
+    "ground_truth": "Conforme o regulamento aprovado, a Comissão Técnica de Avaliação in loco para cursos de graduação é composta por: 1 (um) servidor com formação pedagógica e 2 (dois) professores com formação específica na área do curso de graduação a ser implantado no campus do IFMA.",
+    "source": "140.md"
   },
   {
     "id": 47,
-    "question": "Em cursos ofertados na modalidade de Educação a Distância (EaD) pelo IFMA, como deve ser a execução do estágio?",
-    "ground_truth": "Nos cursos ofertados na modalidade EaD, o estágio deverá ser integralmente realizado de forma presencial."
+    "question": "Segundo o Regulamento do Programa de Monitoria do IFMA, como é definido o valor da bolsa do monitor?",
+    "ground_truth": "Conforme o Regulamento do Programa de Monitoria do IFMA, o monitor receberá bolsa mensal, cujo valor será estabelecido em regulamentação própria, que deverá ser publicado em edital específico juntamente com o período de pagamento, salvo no caso de monitoria voluntária.",
+    "source": "469.md"
   },
   {
     "id": 48,
-    "question": "O cumprimento e a conclusão de um estágio não obrigatório podem ser utilizados como condição para a integralização do curso do estudante?",
-    "ground_truth": "Não. Em nenhuma hipótese, ainda que tenha sido iniciado pelo estudante, a conclusão do estágio não obrigatório constituirá condição para a integralização do curso."
+    "question": "De acordo com as Diretrizes Institucionais para EJA-EPT do IFMA aprovadas pelo CONSUP, quais são as bases normativas para o planejamento da oferta de cursos e organização curricular da EJA-EPT?",
+    "ground_truth": "Conforme as Diretrizes Institucionais para EJA-EPT do IFMA, as bases para o planejamento da oferta de cursos e organização curricular da EJA-EPT são: Constituição Federal de 1988; LDB Lei nº 9.394/1996; Decreto nº 5.840/2006; a Resolução CNE/CEB nº 03/2025; Classificação Brasileira de Ocupações (CBO); Projeto Pedagógico Institucional (PPI); Plano de Desenvolvimento Institucional (PDI); Planejamento Estratégico Institucional (PE); Projeto Político Pedagógico dos campi; e legislações e documentos nacionais e institucionais vigentes relacionados à Educação de Jovens e Adultos.",
+    "source": "1822.md"
   },
   {
     "id": 49,
-    "question": "Quais são as formas estabelecidas para o acesso de estudantes indígenas aos cursos técnicos e de graduação do IFMA?",
-    "ground_truth": "O acesso se dá por meio das Normas Gerais de Acesso à Educação Profissional e Superior do IFMA; mediante Processo Seletivo Específico Indígena (com 2 vagas suplementares por curso); ou por meio de editais próprios no caso de cursos de pós-graduação."
+    "question": "Quantos notebooks, desktops e tablets o IFMA possuía em seu inventário de estações de trabalho, conforme a Estratégia de Sustentação e Provimento da Infraestrutura Computacional aprovada pelo CGD?",
+    "ground_truth": "Conforme levantamento constante na Estratégia de Sustentação e Provimento da Infraestrutura Computacional do IFMA, com ano-base dezembro de 2025, o inventário geral de estações de trabalho era composto por: notebooks: 2.151 unidades; computadores de mesa (desktops com monitor): 3.960 unidades; e tablets: 1.484 unidades.",
+    "source": "1847.md"
   },
   {
     "id": 50,
-    "question": "Qual departamento é responsável por coordenar a Política de Acesso, Permanência e Êxito dos Povos Indígenas (PAPEPI) no IFMA?",
-    "ground_truth": "A PAPEPI é coordenada pelo Departamento de Direitos Humanos e Inclusão Social (DDHIS), vinculado à Pró-Reitoria de Ensino e Assuntos Estudantis (Prenae)."
+    "question": "De acordo com a Resolução CONSUP que disciplina o relacionamento entre o IFMA e as Fundações de Apoio, quem delibera sobre o credenciamento ou recredenciamento anual da Fundação de Apoio?",
+    "ground_truth": "Conforme a Resolução CONSUP do IFMA que disciplina o relacionamento com as Fundações de Apoio, caberá ao Conselho Superior (CONSUP) do IFMA deliberar sobre o credenciamento ou recredenciamento anual da Fundação de Apoio junto à instituição, sendo esta condição necessária para solicitação de autorização da FA para atuar junto ao IFMA ao Ministério da Educação (MEC) e ao Ministério da Ciência, Tecnologia, Inovações e Comunicações (MCTIC).",
+    "source": "1414.md"
   },
   {
     "id": 51,
-    "question": "Qual é o instrumento obrigatório que o IFMA deve instituir para registrar as operações de tratamento de informações sob a Lei Geral de Proteção de Dados (LGPD)?",
-    "ground_truth": "O IFMA deve estabelecer o Inventário de Dados Pessoais (IDP), que é o documento primordial para registrar as operações de tratamentos de dados pessoais realizados na instituição."
+    "question": "Segundo o Regulamento do PIRPTA do IFMA, quais Pró-Reitorias são responsáveis pela implementação e coordenação do programa?",
+    "ground_truth": "Conforme o Regulamento do PIRPTA do IFMA, compete às Pró-Reitorias de Ensino e Assuntos Estudantis (Prenae), de Extensão (Proext) e de Pesquisa, Pós-Graduação e Inovação (PRPGI) a implementação e a coordenação do Programa.",
+    "source": "230.md"
   },
   {
     "id": 52,
-    "question": "Como é composto o Comitê de Proteção de Dados Pessoais (CPDP) do IFMA?",
-    "ground_truth": "O CPDP é formado por cinco membros: o Gestor de Segurança da Informação, o Encarregado pelo Tratamento de Dados Pessoais, um representante da Ouvidoria Institucional, um representante da Auditoria Interna e um representante indicado pelo Reitor."
+    "question": "De acordo com a Resolução CONSUP que institui as normas de estágio supervisionado do IFMA, qual é a idade mínima para que um estudante possa estagiar?",
+    "ground_truth": "Conforme a Resolução CONSUP do IFMA que institui as normas do estágio supervisionado para os Cursos Técnicos e de Graduação, a idade mínima para estagiar é 16 anos.",
+    "source": "1011.md"
   },
   {
     "id": 53,
-    "question": "Qual é a natureza e a principal finalidade do Colégio de Dirigentes (COLDIR) no IFMA?",
-    "ground_truth": "O COLDIR possui caráter consultivo e atua como órgão de apoio ao processo decisório da Reitoria."
+    "question": "De acordo com a Resolução CONSUP que regulamenta a oferta de cursos a distância e semipresenciais no IFMA, em qual prazo máximo os polos em funcionamento devem ser cadastrados no Sistema e-MEC?",
+    "ground_truth": "Conforme a Resolução CONSUP do IFMA que regulamenta a oferta de cursos a distância e semipresencial, os polos em funcionamento devem ser cadastrados no Sistema e-MEC no prazo máximo de sessenta dias, contados da data do respectivo ato próprio.",
+    "source": "1437.md"
   },
   {
     "id": 54,
-    "question": "Quem são os membros que integram oficialmente a estrutura do Colégio de Dirigentes (COLDIR)?",
-    "ground_truth": "O COLDIR é composto pelo Reitor (como presidente), pelos Pró-Reitores e pelos Diretores-Gerais dos Campi."
+    "question": "Conforme o Calendário Acadêmico 2021 do IFMA Campus São João dos Patos para os cursos de Educação Profissional, quantos dias letivos foram previstos para cada semestre?",
+    "ground_truth": "De acordo com o Calendário Acadêmico 2021 do IFMA Campus São João dos Patos para os cursos de Educação Profissional (Ensino Técnico), foram previstos 100 (cem) dias letivos no 1º semestre e 100 (cem) dias letivos no 2º semestre.",
+    "source": "38.md"
   },
   {
     "id": 55,
-    "question": "Que tipo de matérias no Colégio de Dirigentes (COLDIR) exige um quórum qualificado de 2/3 dos membros presentes para deliberação?",
-    "ground_truth": "Matérias que envolvem a apreciação e recomendação de distribuição de recursos orçamentários e a criação ou alteração de funções e órgãos administrativos da estrutura organizacional exigem quórum qualificado de 2/3 dos membros presentes."
+    "question": "De acordo com o Regimento Interno do MaraMaker - Lab IFmaker do Campus São Luís Monte Castelo, com que frequência mínima anual a equipe gestora deve realizar o evento Open Lab Day?",
+    "ground_truth": "Conforme o Regimento Interno do MaraMaker - Lab IFmaker do Campus São Luís Monte Castelo, o Coordenador do MaraMaker e os demais componentes da equipe gestora deverão realizar o evento Open Lab Day pelo menos 1 (uma) vez por ano.",
+    "source": "142.md"
   },
   {
     "id": 56,
-    "question": "Qual é a finalidade central da Comissão Interna de Supervisão do Plano de Carreira dos Cargos Técnico-Administrativos em Educação (CIS/PCCTAE)?",
-    "ground_truth": "A finalidade da CIS/PCCTAE é acompanhar, orientar, fiscalizar e avaliar a implementação do Plano de Carreira dos Cargos Técnico-Administrativos em Educação no âmbito do IFMA."
+    "question": "Quais são os condicionantes para ingresso nos Programas de Assistência Primária do IFMA, como a Bolsa Permanência e o Auxílio Alimentação Escolar?",
+    "ground_truth": "De acordo com o documento, são condicionantes para ingresso nos Programas de Assistência Primária: I - renda per capita familiar de até um salário mínimo e meio, definido conforme o Programa Nacional de Assistência Estudantil (PNAES); II - Índice de Vulnerabilidade Social (IVS) válido; III - estar regularmente matriculado e frequentando; e IV - submeter-se aos editais de seleção dos programas por meio do Sistema de Administração Pública Unificada (SUAP). O documento ressalva que o inciso IV não se aplica ao Auxílio Emergencial.",
+    "source": "325.md"
   },
   {
     "id": 57,
-    "question": "Qual é o tempo de mandato dos membros da CIS/PCCTAE e quantas reconduções são permitidas?",
-    "ground_truth": "O mandato dos membros da comissão é de 3 anos, sendo permitida uma única recondução."
+    "question": "Qual é a composição da Comissão Acadêmica Nacional do Profmat e qual é o mandato de seus membros?",
+    "ground_truth": "Segundo o documento, a Comissão Acadêmica Nacional do Profmat é composta por: I - Um Coordenador Acadêmico Nacional; II - Um Vice-Coordenador Acadêmico Nacional; III - Um representante do corpo docente do Profmat; IV - Um discente egresso do Profmat; V - Um representante da SBM. Os membros são designados pela Diretoria da SBM com mandato de dois anos, permitida a recondução. O Coordenador Acadêmico Nacional e o Vice-Coordenador Acadêmico Nacional são obrigatoriamente docentes com grau de Doutor, credenciados em Instituições Associadas.",
+    "source": "1803.md"
   },
   {
     "id": 58,
-    "question": "Qual é a antecedência mínima necessária para que os pesquisadores solicitem o agendamento de uso nos Laboratórios de Pesquisa Multiusuários do IFMA?",
-    "ground_truth": "O agendamento de uso da infraestrutura e dos equipamentos deverá ser solicitado com, no mínimo, 7 dias de antecedência."
+    "question": "Com quantos dias de antecedência o campus deve enviar convite para a presença de membro da Pró-Reitoria de Ensino e Assuntos Estudantis em solenidade de formatura de cursos técnicos?",
+    "ground_truth": "Conforme o documento, caso o campus queira a presença de algum membro da Pró-Reitoria de Ensino e Assuntos Estudantis (Pró-Reitor, Diretora de Educação ou Chefe do Departamento de Ensino Técnico), deverá enviar convite, via processo eletrônico, com pelo menos 40 dias de antecedência da data da Formatura. O documento esclarece ainda que, para a realização da Sessão Solene de Formatura dos Cursos Técnicos, não é imprescindível a presença do Reitor, Pró-Reitor de Ensino e Assuntos Estudantis ou representantes designados.",
+    "source": "1430.md"
   },
   {
     "id": 59,
-    "question": "É permitido o empréstimo de equipamentos dos laboratórios multiusuários do IFMA para utilização fora de suas instalações?",
-    "ground_truth": "Não. É expressamente vedado o empréstimo de equipamentos ou acessórios para uso fora do laboratório."
+    "question": "Quais foram as datas das reuniões ordinárias do Conselho Diretor do IFMA Campus Zé Doca programadas para agosto e novembro de 2025, conforme a Resolução N° 6/2025?",
+    "ground_truth": "De acordo com o Anexo I da Resolução N° 6/2025 de 15 de julho de 2025 do Conselho Diretor do IFMA Campus Zé Doca, as reuniões ordinárias programadas foram: agosto de 2025 em 29/08/2025 e novembro de 2025 em 07/11/2025.",
+    "source": "1465.md"
   },
   {
     "id": 60,
-    "question": "A quem se destina a Política de Assistência Estudantil (PAE) do IFMA de modo geral?",
-    "ground_truth": "A Política é destinada aos estudantes regularmente matriculados e frequentes em cursos superiores presenciais de graduação e em cursos presenciais de educação profissional técnica de nível médio, exigindo-se que o público-alvo a ser atendido possua um perfil de vulnerabilidade."
+    "question": "Quais foram as datas das reuniões ordinárias do Conselho Diretor do IFMA Campus Zé Doca programadas para fevereiro, maio e agosto de 2025, conforme a Resolução N° 1/2025?",
+    "ground_truth": "De acordo com o Anexo I da Resolução N° 1/2025 de 11 de fevereiro de 2025 do Conselho Diretor do IFMA Campus Zé Doca, as reuniões ordinárias programadas foram: fevereiro de 2025 em 18/02/2025, maio de 2025 em 21/05/2025, e agosto de 2025 em 19/08/2025.",
+    "source": "1156.md"
   },
   {
     "id": 61,
-    "question": "Qual o percentual mínimo da carga horária total do curso que deve ser destinado às atividades de extensão nos Projetos Pedagógicos dos Cursos de Graduação do IFMA?",
-    "ground_truth": "Os Projetos Pedagógicos dos Cursos de Graduação do IFMA devem assegurar a destinação de, no mínimo, 10% (dez por cento) do total da carga horária do curso para as atividades curriculares de extensão, orientando sua ação, prioritariamente, para áreas de grande pertinência social."
+    "question": "Segundo as diretrizes para elaboração dos calendários acadêmicos do IFMA (Resolução CONEPE N° 05/2022), quais setores são recomendados como membros da comissão de elaboração do calendário acadêmico do campus?",
+    "ground_truth": "Conforme o documento, na constituição da comissão de elaboração do calendário acadêmico, recomenda-se que contenha pelo menos um membro de cada um dos seguintes setores: I - Diretoria de Desenvolvimento Educacional ou setor equivalente; II - Departamento de Ensino ou setor equivalente; III - Coordenação de Curso; IV - Equipe pedagógica; V - DRCA ou setor equivalente; VI - Coordenadoria de Assuntos Estudantis ou setor equivalente; VII - DPPGI ou setor equivalente; VIII - Departamento de Extensão ou setor equivalente; IX - Departamento de Ações Inclusivas ou setor equivalente. O documento recomenda ainda que o presidente da comissão seja um dos membros dos incisos I, II ou IV.",
+    "source": "621.md"
   },
   {
     "id": 62,
-    "question": "Quais são as características avaliadas pela comissão de heteroidentificação para candidatos que concorrem às vagas reservadas para pessoas negras (pretas ou pardas)?",
-    "ground_truth": "O procedimento de heteroidentificação do IFMA observará exclusivamente o fenótipo da pessoa autodeclarada negra, entendendo-se por fenótipo a avaliação da aparência do candidato, em especial o conjunto de sua cor de pele, textura de cabelo e traços faciais, de modo a verificar se o candidato é lido socialmente como pessoa negra."
+    "question": "Na Pedagogia da Alternância adotada pelo IFMA Campus São Luís Maracanã, qual é a distribuição percentual da carga horária entre o Tempo Escola/Universidade e o Tempo Comunidade?",
+    "ground_truth": "Segundo o documento, a carga horária dos componentes curriculares é distribuída da seguinte forma: o Tempo Escola/Universidade corresponde a 70% da carga horária dos componentes curriculares e o Tempo Comunidade corresponde a 30% da carga horária dos componentes curriculares.",
+    "source": "558.md"
   },
   {
     "id": 63,
-    "question": "Qual é a carga horária mínima exigida para o tempo de instrução na língua adicional nos cursos de educação profissional técnica de nível médio bilíngues do IFMA?",
-    "ground_truth": "A carga horária do tempo de instrução na língua adicional deve abranger, no mínimo, 20% (vinte por cento) da carga horária na matriz curricular do curso bilíngue e deve corresponder a, pelo menos, 12 (doze) horas semanais."
+    "question": "Qual é a composição da Comissão Gestora da Fábrica de Inovação do IFMA Campus São Luís Monte Castelo?",
+    "ground_truth": "De acordo com o documento, a Comissão Gestora da Fábrica de Inovação do Campus São Luís Monte Castelo terá a seguinte composição: 1 - Um Coordenador Geral da Fábrica de Inovação; 2 - Um vice-coordenador da Fábrica de Inovação; 3 - Um representante do Departamento de Pesquisa, Pós-graduação e Inovação ou equivalente; 4 - Um representante do Departamento de Extensão e Relações Institucionais ou equivalente; 5 - No mínimo quatro servidores do Campus, com responsabilidades específicas: um servidor para gerenciar os Contratos e Convênios de PD&I e Execução de Projetos; um servidor para gerenciar as ações de Treinamento e Prospecção; um servidor para gerenciar a Comunicação Visual nas diversas mídias; e um técnico-administrativo ou estagiário para gerir e manter a utilização operacional do espaço da Fábrica de Inovação e seus equipamentos.",
+    "source": "62.md"
   },
   {
     "id": 64,
-    "question": "Como é composto o Comitê Interno de Biossegurança (CIBio-IFMA) e qual é o tempo de mandato dos seus membros?",
-    "ground_truth": "O CIBio-IFMA deve ser composto por, no mínimo, três especialistas com os conhecimentos necessários para acessar, avaliar e supervisionar projetos com Organismos Geneticamente Modificados (OGMs). Os membros possuem mandato de 2 (dois) anos, admitindo-se uma única recondução por igual período."
+    "question": "Quais são os critérios de participação de estudantes no Programa de Apoio à Participação Estudantil em Atividades Técnico-científicas do IFMA, e com quantos dias de antecedência deve ser feita a solicitação?",
+    "ground_truth": "Conforme o documento, são critérios para participação: 1 - estar matriculado em curso presencial, de alternância ou a distância do IFMA e cursando pelo menos 2 (dois) componentes curriculares; 2 - frequentar as aulas com presença mensal igual ou superior a 75%; 3 - ter Índice de Rendimento Acadêmico (IRA) igual ou superior a 7,00; 4 - representar a instituição por meio de participação em atividades científicas e/ou tecnológicas, artístico-culturais, desportivas ou de representação estudantil; 5 - não possuir pendências de entrega de prestação de contas de nenhum Programa da Política de Assistência Estudantil do IFMA. O estudante/servidor deverá requerer o apoio com antecedência de, no mínimo, 30 (trinta) dias úteis em relação ao início do evento/atividade.",
+    "source": "1459.md"
   },
   {
     "id": 65,
-    "question": "Quais são os modelos de serviços em nuvem abrangidos pela Estratégia de Uso de Software e de Serviços de Computação em Nuvem do IFMA?",
-    "ground_truth": "A normativa e a estratégia do IFMA aplicam-se à contratação e uso dos modelos de Software como Serviço (SaaS), Infraestrutura como Serviço (IaaS) e Plataforma como Serviço (PaaS)."
+    "question": "Segundo o Regulamento da Pedagogia da Alternância do IFMA Campus São Luís Maracanã, quais são os dois tempos formativos que compõem a alternância?",
+    "ground_truth": "De acordo com o documento, a Alternância é estruturada em dois tempos e espaços formativos: o Tempo Escola/Universidade, que se refere ao período em que os discentes permanecem em sala de aula, dedicados exclusivamente aos estudos teóricos e práticos; e o Tempo Comunidade, que se refere ao período de vivência na comunidade em que os discentes continuam o período letivo, com estabelecimento de relações entre os conteúdos teóricos estudados e a sua realidade, com análise dos aspectos da produção e da reprodução da vida do/no campo, em articulação com Ensino, Pesquisa e Extensão.",
+    "source": "514.md"
   },
   {
     "id": 66,
-    "question": "Como deve ser estruturada a carga horária mínima dos cursos de Licenciatura do IFMA de acordo com seus núcleos formativos?",
-    "ground_truth": "A carga horária deve ser distribuída em 8 (oito) semestres letivos e organizada nos seguintes núcleos e limites mínimos: Núcleo de Estudos de Formação Geral com 1.056 horas-aula, Núcleo de Estudos de Formação Específica com 1.920 horas-aula, Núcleo de Atividades Acadêmicas de Extensão com 408 horas-aula, Núcleo de Estágio Curricular com 480 horas-aula e Núcleo de Atividades Complementares com 160 horas-relógio."
+    "question": "Qual é a composição da Comissão Gestora da Fábrica de Inovação do IFMA Campus Coelho Neto e quantos servidores a compõem além do coordenador e subcoordenador?",
+    "ground_truth": "Segundo o documento, a Comissão Gestora da Fábrica de Inovação do Campus Coelho Neto terá a seguinte composição: 1 - Um Coordenador Geral da Fábrica de Inovação; 2 - Um Subcoordenador da Fábrica de Inovação; 3 - Um representante do Departamento de Pesquisa, Pós-graduação e Inovação ou equivalente; 4 - Um representante do Departamento de Extensão e Relações Institucionais ou equivalente; 5 - Cinco servidores do Campus com responsabilidades específicas: um para gerenciar Contratos e Convênios de PD&I; um para gerenciar a Execução de Projetos; um para gerenciar as ações de Treinamento e Prospecção; um para gerenciar a Comunicação Visual nas diversas mídias; e um técnico-administrativo ou estagiário para gerir e manter a utilização operacional do espaço da Fábrica de Inovação e seus equipamentos.",
+    "source": "451.md"
   },
   {
     "id": 67,
-    "question": "Quais membros devem compor, exclusivamente e por ordem de precedência, a Mesa Diretiva das sessões solenes de formatura dos Cursos Técnicos do IFMA?",
-    "ground_truth": "A Mesa Diretiva deve ser composta por: 1) Reitor(a) ou Representante Designado(a); 2) Autoridades dos poderes Executivo, Legislativo ou Judiciário convidadas; 3) Diretor Geral do Campus ou Representante; 4) Pró-Reitores ou Representantes; 5) Diretor de Desenvolvimento Educacional ou Representante; 6) Chefe do Departamento de Ensino; 7) Coordenador de curso; 8) Paraninfo; e 9) Patrono/Patronesse."
+    "question": "Com quantas horas semanais mínimas os membros do Núcleo de Gênero e Diversidade Januária do IFMA Campus Santa Inês devem registrar sua atuação, e qual é a carga horária da Gestão Colegiada para docentes?",
+    "ground_truth": "De acordo com o documento, a carga horária regular para membros do Januária corresponderá a, no mínimo, 2 horas semanais, podendo ser majorada quando da participação em comissões organizadoras de eventos promovidos pelo Núcleo. Quanto à Gestão Colegiada, a carga horária dos servidores da carreira docente que a compuserem deve ser de 04 horas semanais, em conformidade à Resolução no. 067, de 30 de setembro de 2019, do IFMA.",
+    "source": "518.md"
   },
   {
     "id": 68,
-    "question": "Como é estruturada a Comissão Permanente de Apuração de Responsabilidades e Cobranças (COPAREC/IFMA) e quantos membros compõem cada câmara?",
-    "ground_truth": "A COPAREC/IFMA é estruturada em duas câmaras especializadas: a Câmara de Apuração de Responsabilidade e a Câmara de Cobrança. Cada câmara especializada deve ser composta por um mínimo de 2 (dois) e um máximo de 3 (três) membros."
+    "question": "Quantos dias letivos devem constar nos calendários acadêmicos dos cursos de graduação e técnicos dos campi do IFMA para o ano letivo 2022, e qual é o percentual mínimo da carga horária reservado para recuperações finais?",
+    "ground_truth": "Segundo o documento, os calendários acadêmicos dos cursos de graduação e técnicos dos campi do IFMA para o ano letivo 2022 devem conter a quantidade de 200 dias letivos, conforme dispõe a LDB Nº 9394/96. O documento também estabelece que devem reservar o mínimo de 5% da carga horária total do semestre/ano letivo para as recuperações finais, sendo essa porcentagem contabilizada à parte dos dias letivos exigidos pelos dispositivos legais vigentes.",
+    "source": "113.md"
   },
   {
     "id": 69,
-    "question": "Quais os percentuais mínimos de carga horária presencial obrigatória para os cursos de graduação e para os cursos técnicos ofertados no formato a distância (EaD) no IFMA?",
-    "ground_truth": "Para os cursos de graduação a distância, exige-se no mínimo 10% da carga horária total do curso por meio de atividades presenciais e 10% em atividades presenciais ou síncronas mediadas. Para os cursos técnicos a distância, exige-se o mínimo de 20% da carga horária total do curso por meio de atividades presenciais."
+    "question": "Quais categorias de usuários das Bibliotecas do IFMA têm direito ao empréstimo domiciliar e quais podem apenas consultar no local?",
+    "ground_truth": "De acordo com o documento, a biblioteca é de livre acesso a estudantes, servidores, terceirizados e estagiários. A comunidade externa poderá utilizá-la unicamente para consulta em suas dependências, não sendo permitido empréstimo domiciliar. Para fins de cadastro de empréstimo, são considerados aptos os estudantes matriculados nas modalidades de ensino com carga horária superior a 360 horas.",
+    "source": "1737.md"
   },
   {
     "id": 70,
-    "question": "Quem compõe o Comitê Gestor do Sistema Integrado dos Núcleos de Estudos Afro-Brasileiros e Indígenas (SisNeabi)?",
-    "ground_truth": "O Comitê Gestor é composto pelo Chefe do Departamento de Direitos Humanos e Inclusão Social (DDHIS) na condição de coordenador, um membro do Neabi de cada campus, um membro indicado pela Pró-Reitoria de Pesquisa, Pós-graduação e Inovação (PRPGI) e um membro indicado pela Pró-Reitoria de Extensão (Proext)."
+    "question": "Qual é o perfil exigido para o Coordenador Local do Núcleo Local de Robótica e Programação (NLRP) do IFMA Campus Coelho Neto e como é feita sua designação?",
+    "ground_truth": "Segundo o documento, o Coordenador Local do NLRP do Campus Coelho Neto deverá ser servidor docente efetivo, selecionado por edital, e designado pela Diretoria-Geral do campus por meio de portaria, tornando-se responsável pela gestão de sua unidade. O documento também estabelece que o Coordenador Local deve cumprir e fazer cumprir as decisões, diretrizes e normas estabelecidas pela Coordenação Geral do PIRPTA.",
+    "source": "22.md"
   },
   {
     "id": 71,
-    "question": "Quais são as modalidades de bolsas previstas no Programa Institucional de Bolsas do IFMA de acordo com o perfil profissional e as funções dos beneficiários?",
-    "ground_truth": "As bolsas são classificadas nas seguintes modalidades: Gestor de programa ou projeto, Coordenador de programa ou projeto, Pesquisador, Extensionista, Colaborador externo, Estudante e Intercambista."
+    "question": "Quais são as atribuições do Coordenador Local do NLRP do IFMA Campus Timon listadas no documento?",
+    "ground_truth": "De acordo com o documento, entre as atribuições do Coordenador Local do NLRP do Campus Timon constam: I - elaborar o plano anual de atividades; II - contribuir para a consolidação das atividades do PIRPTA; III - incentivar outros docentes e discentes a participarem das atividades do PIRPTA; IV - propor projetos e atividades para o PIRPTA; V - contribuir na reformulação do projeto quando necessário de acordo com as especificidades do momento.",
+    "source": "313.md"
   },
   {
     "id": 72,
-    "question": "Qual é a proporção mínima exigida de participantes com vínculo com o IFMA na execução de projetos apoiados por Fundações de Apoio (FA)?",
-    "ground_truth": "Por regra geral, do total de participantes do projeto, pelo menos 2/3 (dois terços) devem ser pessoas com vínculo com o IFMA. Em casos justificados e aprovados pelo CONSUP, a proporção pode ser de no mínimo 1/3 (um terço), ou até inferior a 1/3, desde que esta última condição não ultrapasse o limite de 10% do número total de projetos realizados com a FA."
+    "question": "Quais são as finalidades do Programa Talentos Científicos instituído no IFMA pela Resolução CONEPE N° 01/2024?",
+    "ground_truth": "Conforme o documento, são finalidades do Programa Talentos Científicos: 1 - promover a participação de estudantes do IFMA e de escolas participantes em Olimpíadas Científicas e outras competições de caráter acadêmico ou técnico-científico voltadas para estimular a resolução de problemas teóricos e/ou práticos, a realização de experimentos, desenvolvimento de produtos, ideias, protótipos, inovação e a promoção de debates relevantes à sociedade, bem como o incentivo à cultura empreendedora; 2 - aprimorar a qualidade da educação científica na educação básica, técnica de nível médio e superior em nível de graduação e pós-graduação, favorecendo a popularização da ciência e a divulgação científica entre estudantes destes níveis; 3 - estimular o surgimento de novos talentos em todas as áreas do conhecimento.",
+    "source": "229.md"
   },
   {
     "id": 73,
-    "question": "Como é estruturado o modelo de implementação da Equipe de Tratamento e Resposta a Incidentes em Redes Computacionais (ETIR) do IFMA?",
-    "ground_truth": "A ETIR adota o modelo de implementação denominado “Combinado ou Misto”, possuindo uma estrutura organizacional composta por uma equipe central sediada na Reitoria (que coordena, gerencia e planeja estratégias) e por equipes locais distribuídas pelos campi (que executam as diretrizes e fazem a resposta inicial a incidentes)."
+    "question": "Qual é a composição do Comitê de Proteção de Dados Pessoais (CPDP) do IFMA e quem exerce a presidência desse comitê?",
+    "ground_truth": "Segundo o documento, o Comitê de Proteção de Dados Pessoais (CPDP) será formado por cinco membros e terá a seguinte composição: I - O Gestor de Segurança da Informação; II - O Encarregado pelo Tratamento de Dados Pessoais; III - Um representante indicado pela Ouvidoria Institucional; IV - Um representante indicado pela Auditoria Interna; V - Um representante indicado pelo Reitor. A presidência do CPDP será exercida pelo membro indicado pelo Reitor do IFMA.",
+    "source": "630.md"
   },
   {
     "id": 74,
-    "question": "Qual deve ser a composição da banca multiprofissional encarregada da Avaliação Biopsicossocial para acesso a vagas reservadas a pessoas com deficiência no IFMA?",
-    "ground_truth": "As bancas multiprofissionais devem ser compostas, no mínimo, por 1 (um) médico, 1 (um) psicólogo e 1 (um) assistente social. Em processos seletivos de estudantes, inclui-se também o coordenador ou chefe do departamento de ações inclusivas, enquanto que em concursos públicos para provimento de cargos, inclui-se 1 (um) servidor estável do mesmo cargo concorrido pelo candidato. É obrigatória também a presença de um Tradutor e Intérprete de Libras caso haja participação de candidato surdo ou com deficiência auditiva."
+    "question": "Segundo a Política Institucional de Alimentação e Nutrição Estudantil (PIANE) do IFMA, qual setor é responsável pela gestão central da política e qual setor é responsável em nível de campus?",
+    "ground_truth": "De acordo com o documento, a Diretoria de Assuntos Estudantis (DAE) da Pró-Reitoria de Ensino e Assuntos Estudantis (Prenae) é responsável pela gestão e articulação das ações relacionadas à PIANE. A nível de campus, a gestão e planejamento local das ações ficarão sob responsabilidade da Coordenação de Assistência Estudantil e Setor de Alimentação Estudantil ou equivalentes.",
+    "source": "1185.md"
   },
   {
     "id": 75,
-    "question": "Quais critérios cumulativos autorizam, excepcionalmente, o deferimento da integralização da carga horária de um curso técnico para um estudante do IFMA que ainda não cumpriu o estágio curricular obrigatório?",
-    "ground_truth": "O estudante deve atender cumulativamente aos seguintes critérios: ter Índice de Rendimento Acadêmico igual ou superior ao mínimo exigido (com aprovação em todos os componentes cursados); comprovar aprovação em processo seletivo para curso superior em instituição reconhecida pelo MEC ou aprovação em proposta de emprego que exija o diploma em questão; e comprovar que o campus, no decorrer do curso, não conseguiu garantir campo de estágio suficiente para todos os discentes matriculados."
+    "question": "De acordo com a Política de Saúde Mental do IFMA, quais são os princípios que a norteiam?",
+    "ground_truth": "Conforme o documento, são princípios da Política de Saúde Mental do IFMA: I - Universalidade e equidade; II - Integralidade; III - Transversalidade; IV - Responsabilidade coletiva; V - Respeito aos direitos humanos; VI - Protagonismo e oferta de espaço de fala com escuta respeitosa; VII - Defesa da ética nas relações humanas; VIII - Valorização e desestigmatização da saúde mental; IX - Combate ao preconceito e à violência.",
+    "source": "1589.md"
   },
   {
     "id": 76,
-    "question": "De acordo com a Política de Assistência Estudantil (Polae) do IFMA, qual é o percentual mínimo do orçamento da ação de Assistência Estudantil que deve ser destinado à alimentação escolar e aos programas voltados a estudantes em vulnerabilidade social?",
-    "ground_truth": "No mínimo 70% (setenta por cento) do orçamento da ação deve ser destinado à alimentação escolar e aos programas voltados ao atendimento de estudantes em situação de vulnerabilidade social."
+    "question": "A Política de Saúde Mental do IFMA prevê atendimento clínico ou terapêutico individual como parte de suas ações?",
+    "ground_truth": "Não. De acordo com o documento, as ações previstas na Política de Saúde Mental do IFMA possuem caráter preventivo, educativo e de promoção da saúde, voltadas à sensibilização, à orientação e ao fortalecimento de fatores protetivos no contexto institucional, não configurando atendimento clínico ou terapêutico individual, nem substituindo os serviços especializados ofertados pelo Sistema Único de Saúde (SUS) ou pela rede privada.",
+    "source": "1818.md"
   },
   {
     "id": 77,
-    "question": "Segundo o Regulamento do Programa de Gestão e Desempenho (PGD) do IFMA, quais são os percentuais máximos de servidores permitidos na modalidade de teletrabalho integral e parcial, e qual é a exigência de tempo presencial no regime parcial?",
-    "ground_truth": "O limite máximo é de até 100% para o regime de execução parcial (abrangendo servidores técnico-administrativos e docentes) e de até 60% para o regime de execução integral (exclusivo para servidores técnico-administrativos). No caso da modalidade de teletrabalho parcial, o tempo mínimo de desempenho das atividades de maneira presencial na unidade será de 40% da carga horária semanal do servidor."
+    "question": "Qual é o público abrangido pela Política de Saúde Mental do IFMA aprovada pelo Conselho Superior?",
+    "ground_truth": "De acordo com o documento, as ações da Política de Saúde Mental terão como público a comunidade escolar, incluindo os estudantes, pais e responsáveis, servidores efetivos e contratados temporariamente, trabalhadores terceirizados e estagiários do IFMA.",
+    "source": "1818.md"
   },
   {
     "id": 78,
-    "question": "Como deve ser composta a Comissão Central de Saúde Mental de acordo com a Política de Saúde Mental do IFMA?",
-    "ground_truth": "A Comissão Central deve ser composta por, no mínimo, dois representantes da Pró-Reitoria de Ensino e Assuntos Estudantis (Prenae), dois da Propladi, um da PRPGI, um da Proext, quatro representantes eleitos de presidentes de Comissões Locais dos campi, e quatro representantes estudantis (sendo um de curso técnico, um de graduação, um da pós-graduação e um da EJA)."
+    "question": "Qual é o interstício mínimo exigido entre concessões do AIPEI para um servidor candidato ao programa do IFMA?",
+    "ground_truth": "De acordo com o documento, o candidato servidor deve cumprir a exigência de interstício de 12 (doze) meses desde a última concessão de AIPEI recebido do IFMA.",
+    "source": "1819.md"
   },
   {
     "id": 79,
-    "question": "Na Estratégia de Sustentação e Provimento da Infraestrutura Computacional do IFMA, quais são os prazos de vida útil e os percentuais de renovação definidos para desktops e notebooks?",
-    "ground_truth": "Para desktops e workstations, a vida útil definida é de 5 anos, com renovação de 20% ao ano. Para os notebooks, a vida útil é de 4 anos (não incluída a bateria), com renovação de 25% ao ano."
+    "question": "Quais categorias de pessoas podem ser dispensadas dos requisitos de participação no PGD previstos nos incisos I e II do Art. 7º, conforme aprovação do CONSUP/IFMA?",
+    "ground_truth": "Conforme o documento, poderão ser dispensadas do disposto nos incisos I e II as pessoas: I - com deficiência; II - que possuam dependente com deficiência; III - idosas; IV - acometidas de moléstia profissional, tuberculose ativa, alienação mental, esclerose múltipla, neoplasia maligna, cegueira, hanseníase, paralisia irreversível e incapacitante, cardiopatia grave, doença de Parkinson, espondiloartrose anquilosante, nefropatia grave, hepatopatia grave, estados avançados da doença de Paget (osteíte deformante), contaminação por radiação, ou síndrome da imunodeficiência adquirida; V - gestantes; e VI - lactantes de filha ou filho de até dois anos de idade.",
+    "source": "766.md"
   },
   {
     "id": 80,
-    "question": "Quais são as sanções impostas ao beneficiado pelo Programa Institucional de Auxílio Individual para Participação em Eventos e Intercâmbios Internacionais (AIPEI) que não realizar a prestação de contas no prazo máximo de 30 dias após o evento?",
-    "ground_truth": "A ausência de prestação de contas no prazo estabelecido acarretará a obrigação de devolução do apoio financeiro concedido, com valores atualizados na data do pagamento. Além disso, a inadimplência impossibilita a aceitação de futuras candidaturas do pesquisador ao programa."
+    "question": "Qual curso de Formação Continuada (FIC) foi aprovado pelo regulamento constante na Resolução 177 do IFMA Campus Pinheiro?",
+    "ground_truth": "De acordo com o documento, foi aprovado o Regulamento do Curso de Formação Continuada - FIC - Noções de Gestão e Planejamento no Serviço Público, do Instituto Federal de Educação, Ciência e Tecnologia do Maranhão, Campus Pinheiro.",
+    "source": "177.md"
   },
   {
     "id": 81,
-    "question": "Conforme as Diretrizes Institucionais para Educação de Jovens e Adultos (EJA-EPT), quais são os componentes curriculares obrigatórios previstos e como eles devem ser organizados em relação ao curso?",
-    "ground_truth": "Os componentes curriculares obrigatórios são: arte, educação física, língua portuguesa, língua estrangeira, biologia, física, química, filosofia, sociologia, geografia, história, matemática e informática básica. Eles deverão ser articulados a partir do eixo tecnológico do respectivo curso, com ementas que contemplem temáticas voltadas para os saberes e as experiências de vida dos estudantes."
+    "question": "Qual curso de Formação Continuada (FIC) foi aprovado pelo regulamento constante na Resolução 176 do IFMA Campus Pinheiro?",
+    "ground_truth": "De acordo com o documento, foi aprovado o Regulamento do Curso de Formação Continuada - FIC - Formação de Agente Multiplicador de Desenvolvimento, do Instituto Federal de Educação, Ciência e Tecnologia do Maranhão, Campus Pinheiro.",
+    "source": "176.md"
   },
   {
     "id": 82,
-    "question": "De acordo com o Regulamento para o processo de escolha dos membros do Conselho de Ensino, Pesquisa e Extensão (Conepe), quais são os critérios de desempate caso dois candidatos obtenham o mesmo número de votos em um fórum de eleição?",
-    "ground_truth": "Em caso de empate, a vaga ficará com o candidato que tiver maior tempo de efetivo exercício na Instituição (no caso de ser servidor) ou a matrícula ativa mais antiga (no caso de ser estudante). Se o empate persistir, a vaga será ocupada pelo candidato que tiver maior idade."
+    "question": "Qual curso de Formação Continuada (FIC) foi aprovado pelo regulamento constante na Resolução 178 do IFMA Campus Pinheiro?",
+    "ground_truth": "De acordo com o documento, foi aprovado o Regulamento do Curso de Formação Continuada - FIC - Boas Práticas no Serviço Público, do Instituto Federal de Educação, Ciência e Tecnologia do Maranhão, Campus Pinheiro.",
+    "source": "178.md"
   },
   {
     "id": 83,
-    "question": "De acordo com a Política de Assistência Estudantil (Polae) do IFMA, quais profissionais podem compor a equipe multiprofissional responsável pela execução interdisciplinar das ações?",
-    "ground_truth": "A equipe multiprofissional será formada por assistente social, pedagogo ou técnico em assuntos educacionais, psicólogo, nutricionista, assistente de alunos, técnico de enfermagem, odontólogo, enfermeiro, médico e outros profissionais, de acordo com a demanda institucional."
+    "question": "Os cursos FIC do IFMA Campus Bacabal devem ser ofertados de forma gratuita ou podem ser cobrados dos alunos?",
+    "ground_truth": "Conforme o documento, os cursos de Formação Inicial e Continuada (FIC) do IFMA Campus Bacabal devem ser ofertados de forma gratuita.",
+    "source": "364.md"
   },
   {
     "id": 84,
-    "question": "Segundo o Programa Institucional de Bolsa de Desenvolvimento da Pesquisa do IFMA, quais as condições e atitudes que impedem um servidor/orientador de participar das seleções para obtenção de bolsas?",
-    "ground_truth": "Estará impedido o servidor inadimplente em qualquer programa institucional do IFMA, o orientador que faltar a duas apresentações consecutivas ou alternadas do Seminário de Iniciação Científica (SEMIC) sem justificativa, o servidor que não exercer orientação efetiva em projetos de IC&T, ou que não apresentar documentos obrigatórios para conclusão de projetos executados. Também é impedido o servidor afastado, cedido, em licença, ou em processo de redistribuição que impossibilite a execução do projeto."
+    "question": "Qual é o prazo mínimo de antecedência exigido para solicitar substituição ou permuta de aulas no IFMA Campus São João dos Patos, e quem deve receber essa solicitação?",
+    "ground_truth": "De acordo com o documento, o requerimento de substituição/permuta programada de aulas deve ser feito com antecedência mínima de 3 (três) dias úteis antes da aula a ser ministrada, por meio de formulário devidamente preenchido em duas vias e assinado pelos docentes envolvidos, entregue ao Chefe do Departamento de Ensino (DEN).",
+    "source": "144.md"
   },
   {
     "id": 85,
-    "question": "De acordo com as regras do Programa de Gestão e Desempenho (PGD), o que ocorre caso o plano de trabalho de um participante do teletrabalho seja avaliado como inadequado (por inexecução parcial ou integral) e as justificativas não sejam aceitas pela chefia?",
-    "ground_truth": "O participante sofrerá desconto na sua folha de pagamento, proporcional à carga horária não executada, baseando-se na distribuição percentual do trabalho. Além disso, o plano de trabalho subsequente deve obrigatoriamente prever a compensação da carga horária faltante, e em caso de desligamento por inexecução, o servidor fica proibido de realizar nova adesão ao PGD pelos 12 meses seguintes."
+    "question": "Qual setor é responsável pela gestão sistêmica da Política de Programas e Projetos de Ensino (PEN) no IFMA, e qual é a carga horária mínima total para o desenvolvimento de Projetos de Ensino?",
+    "ground_truth": "Conforme o documento, a Pró-reitoria de Ensino e Assuntos Estudantis (Prenae) é a responsável pela gestão sistêmica da PEN. A carga horária mínima total para o desenvolvimento dos Projetos de Ensino em quaisquer formas é de 4 horas.",
+    "source": "875.md"
   },
   {
     "id": 86,
-    "question": "Quais valores financeiros estão expressamente excluídos do cálculo da Renda Bruta Familiar Per Capita para a avaliação do Índice de Vulnerabilidade Social (IVS)?",
-    "ground_truth": "Estão excluídos o 13º salário, 1/3 de férias, auxílios para alimentação e transporte, diárias e reembolsos, adiantamentos, estornos, indenizações de seguros ou judiciais, e rendimentos provenientes de programas sociais (como Bolsa Família, programas de transferência de renda municipais/estaduais, e programas da própria Política de Assistência Estudantil do IFMA)."
+    "question": "Qual é o horário de funcionamento do Laboratório de Informática do IFMA Campus São João dos Patos e em quais dias da semana ele funciona?",
+    "ground_truth": "De acordo com o documento, o Laboratório de Informática funciona de segunda à sexta-feira, das 7h às 22h. O Técnico em Laboratórios de Informática está disponível de segunda à sexta-feira, das 8h às 12h e das 14h às 18h.",
+    "source": "433.md"
   },
   {
     "id": 87,
-    "question": "Quais são os eixos temáticos estabelecidos para a execução dos projetos de ensino na Política de Programas e Projetos de Ensino (PEN)?",
-    "ground_truth": "Os projetos devem se alinhar aos eixos de: Ensino-Aprendizagem Inovadores, Esporte e Lazer, Acesso, Permanência e Êxito, Atividades de Extensão Curricularizada, Educação para as relações étnico-raciais e respeito à diversidade religiosa, e Saúde mental e bem-estar."
+    "question": "No Calendário Letivo 2020 do IFMA Campus Coelho Neto (Resolução 13/2020), qual era o período previsto para rematrícula dos alunos veteranos?",
+    "ground_truth": "De acordo com o documento, o período de rematrícula para alunos veteranos estava previsto de 20 de janeiro a 05 de fevereiro de 2020.",
+    "source": "239.md"
   },
   {
     "id": 88,
-    "question": "Em quais situações ocorrerá o cancelamento da cessão de uso (empréstimo) de equipamentos de acessibilidade para estudantes com necessidades educacionais específicas?",
-    "ground_truth": "O cancelamento ocorrerá quando o estudante se afastar da instituição sem aviso prévio (abandonar o curso), trancar ou cancelar a matrícula, formalizar a desistência do auxílio, ou omitir/fraudar informações relacionadas às suas necessidades educacionais específicas."
+    "question": "No Calendário Letivo 2020 do IFMA Campus Coelho Neto aprovado pela Resolução 11/2020, qual era o período previsto para solicitação de trancamento de matrícula em fevereiro?",
+    "ground_truth": "De acordo com o documento, o período para solicitação de trancamento de matrícula em fevereiro de 2020 era de 03 a 28 de fevereiro de 2020.",
+    "source": "258.md"
   },
   {
     "id": 89,
-    "question": "Qual é o limite máximo permitido para o acúmulo de auxílios e bolsas no âmbito do Programa de Assistência Estudantil (PAE)?",
-    "ground_truth": "O acúmulo de auxílios e bolsas da assistência estudantil é permitido desde que o somatório total não ultrapasse 75% (setenta e cinco por cento) do valor do salário-mínimo vigente."
+    "question": "Quais são as condições para que um discente do IFMA Campus Timon possa utilizar a Sala eGames?",
+    "ground_truth": "Conforme o documento, podem utilizar a Sala eGames: alunos devidamente matriculados e frequentando regularmente a instituição, desde que não estejam em horários de aula (incluindo intervalos e aulas vagas), que não haja reserva agendada para o mesmo horário e data, e que haja algum monitor e/ou servidor acompanhando o uso da sala. Adicionalmente, não farão uso da sala os discentes que não possuírem no mínimo 75% de frequência em seu boletim e 2 (duas) ou mais pendências.",
+    "source": "611.md"
   },
   {
     "id": 90,
-    "question": "Quais são os valores das bolsas mensais estabelecidos para os estudantes (licenciandos) e para os supervisores no âmbito do Programa Licenciar?",
-    "ground_truth": "A bolsa para o estudante (licenciando) tem o valor fixado em R$ 700,00, e a bolsa para o Docente Supervisor possui o valor de R$ 900,00."
+    "question": "O que a Resolução 1158 do CONEPE/IFMA aprova?",
+    "ground_truth": "De acordo com o documento, a Resolução aprova o Relatório Institucional Consolidado do Programa de Educação Tutorial (PET) - 2020 do Instituto Federal de Educação, Ciência e Tecnologia do Maranhão (IFMA). O documento não apresenta conteúdo normativo com prazos, critérios ou procedimentos — trata-se exclusivamente da aprovação formal de um relatório.",
+    "source": "1158.md"
   },
   {
     "id": 91,
-    "question": "Qual é a relação aluno-professor (RAP) presencial que deve ser estabelecida como meta na elaboração ou revisão do Plano de Oferta de Cursos e Vagas (POCV) dos campi?",
-    "ground_truth": "A meta estabelecida para a relação de matrículas presenciais por professor no POCV deve ser maior ou igual a 20 alunos por docente."
+    "question": "O Calendário Acadêmico 2023 dos Cursos Superiores do IFMA Campus Caxias, aprovado pela Resolução 479, contém quais informações normativas detalhadas sobre prazos ou procedimentos acadêmicos?",
+    "ground_truth": "Não encontrei evidências suficientes nos documentos indexados para responder a esta pergunta. O documento lido contém apenas o cabeçalho da resolução e os dados de assinatura eletrônica, sem apresentar o anexo com o calendário acadêmico propriamente dito, que conteria as datas e prazos.",
+    "source": "479.md"
   },
   {
     "id": 92,
-    "question": "Qual é o prazo estabelecido para que os docentes preencham o Plano Educacional Individualizado (PEI) no SUAP após serem notificados?",
-    "ground_truth": "Os docentes terão o prazo máximo de 15 (quinze) dias para preencher o PEI no sistema SUAP a partir do recebimento da notificação."
+    "question": "O que foi aprovado pela Resolução 591 do CONDIR do IFMA Campus Codó?",
+    "ground_truth": "De acordo com o documento, foi aprovada ad referendum a Proposta de Reforma do Centro de Pesquisa, Estudo e Extensão em Linguagens (CEPELI) do IFMA Campus Codó, conforme projeto em anexo. O documento não detalha prazos, valores ou especificações técnicas da reforma — esses dados constam no projeto anexo, que não está disponível no texto lido.",
+    "source": "591.md"
   },
   {
     "id": 93,
-    "question": "Qual é o procedimento inicial exigido no SUAP quando ocorre a ausência de um docente na ministração de aulas?",
-    "ground_truth": "A chefia imediata, ou um servidor formalmente autorizado por ela, deve registrar a ausência do docente diretamente no módulo do SUAP, o que gerará uma notificação automática ao docente por e-mail e no próprio sistema."
+    "question": "Segundo o Regulamento dos Conselhos de Classe dos Cursos da Educação Profissional Técnica de Nível Médio do IFMA (Resolução CONEPE nº 03/2022), quem preside o Conselho de Classe e quais são os membros que o compõem?",
+    "ground_truth": "Conforme o documento, o Conselho de Classe é presidido pelo coordenador do curso ou equivalente, e é composto pelos seguintes membros: o coordenador do Curso ou equivalente como presidente; o chefe do Departamento de Ensino ou setor equivalente ou substituto designado; os docentes das disciplinas ofertadas na turma no ano ou módulo vigente; um representante do corpo técnico-pedagógico; um representante do Núcleo de Assuntos Estudantis (NAE) ou unidade equivalente; um representante do NAPNE (caso haja estudante que necessite de atendimento educacional específico); e dois representantes dos estudantes de cada turma.",
+    "source": "265.md"
   },
   {
     "id": 94,
-    "question": "Qual é o prazo de validade do Índice de Vulnerabilidade Social (IVS) de um estudante após a sua aprovação?",
-    "ground_truth": "O IVS terá a validade de 2 (dois) anos, contados a partir da data do seu deferimento no sistema."
+    "question": "Qual é o percentual mínimo da carga horária total do curso que deve ser destinado à curricularização da extensão nos cursos de graduação do IFMA, conforme a Resolução CONSUP nº 032/2021?",
+    "ground_truth": "De acordo com o documento, a curricularização da extensão consiste na inserção de ações de extensão na matriz curricular dos cursos de graduação do IFMA no percentual mínimo de 10% da carga horária total do curso.",
+    "source": "1298.md"
   },
   {
     "id": 95,
-    "question": "Qual deve ser a composição quantitativa das comissões de heteroidentificação do IFMA em relação a membros titulares e suplentes?",
-    "ground_truth": "As comissões responsáveis pelos procedimentos de heteroidentificação serão compostas por exatos 5 (cinco) membros titulares e até 3 (três) membros suplentes."
+    "question": "Quais são as datas das reuniões ordinárias do Conselho Diretor do IFMA Campus Zé Doca previstas para o segundo semestre de 2025, conforme a Resolução nº 4/2025?",
+    "ground_truth": "De acordo com o documento, as reuniões ordinárias do Conselho Diretor do IFMA Campus Zé Doca previstas para o segundo semestre de 2025 são: julho/2025 em 11/07/2025 e outubro/2025 em 08/10/2025.",
+    "source": "779.md"
   },
   {
     "id": 96,
-    "question": "Para a aquisição de materiais de consumo ou serviços em Projetos de Ensino com valor superior a R$ 1.500,00, qual é a exigência normativa obrigatória em relação às cotações?",
-    "ground_truth": "O coordenador do projeto de ensino deverá obrigatoriamente obter 3 (três) cotações de preços diferentes, optar sempre pelo menor preço obtido, e apresentar todas as cotações realizadas no ato da prestação de contas do projeto."
+    "question": "O Coordenador Local do Centro de Línguas do IFMA Campus Timon deve ser que tipo de servidor, e como é feita sua designação?",
+    "ground_truth": "Conforme o documento, o Coordenador Local do Centro de Línguas - Campus Timon deverá ser servidor docente efetivo, selecionado por edital, e designado pela Diretoria-Geral do campus por meio de portaria, tornando-se responsável pela gestão de sua unidade.",
+    "source": "640.md"
   },
   {
     "id": 97,
-    "question": "Quais sanções a Comissão de Assistência Estudantil e Permanência (CAEP) pode adotar caso seja confirmada uma irregularidade cometida por um discente beneficiário de um programa de assistência estudantil?",
-    "ground_truth": "De forma fundamentada, a CAEP pode solicitar a exclusão do estudante do processo seletivo, suspender o benefício concedido, determinar a devolução dos valores recebidos indevidamente ao erário, e encaminhar a situação para a abertura de processo disciplinar discente."
+    "question": "Segundo o Regulamento do Conselho de Classe do IFMA Campus Pedreiras, qual é o mandato dos representantes discentes no Conselho de Classe e em quais situações eles perdem o mandato?",
+    "ground_truth": "De acordo com o documento, os representantes discentes são eleitos por seus pares e têm mandato de 1 (um) ano, com direito a uma recondução. Perderão o mandato se concluírem o curso, se forem suspensos ou se tiverem sua matrícula cancelada ou trancada.",
+    "source": "252.md"
   },
   {
     "id": 98,
-    "question": "Qual é o limite de horas diárias permitidas para a compensação do recesso de fim de ano para servidores públicos, empregados públicos e contratados do IFMA?",
-    "ground_truth": "A compensação de horário do recesso de final de ano é limitada ao máximo de 2 (duas) horas diárias da jornada de trabalho para esses agentes."
+    "question": "Qual é o teto máximo de acúmulo de bolsas de transferência direta de recursos que um estudante pode receber do IFMA, conforme o Regulamento dos Programas Específicos de Assistência Primária?",
+    "ground_truth": "De acordo com o documento, fica estabelecido o teto máximo de 75% (setenta e cinco por cento) do salário-mínimo vigente para o acúmulo de todas as bolsas de transferência direta de recursos que um estudante pode receber do IFMA.",
+    "source": "655.md"
   },
   {
     "id": 99,
-    "question": "Qual é o prazo para que os campi cadastrem matrizes curriculares no SUAP referentes a novos Projetos Pedagógicos de Curso (PPC) criados ou reformulados?",
-    "ground_truth": "Os campi possuem o prazo de 8 (oito) dias para realizar o cadastro, contados a partir da data de envio, pela Pró-Reitoria de Ensino e Assuntos Estudantis (Prenae), do processo contendo a Resolução de aprovação do Conselho Superior."
+    "question": "Quais datas compõem o calendário de reuniões do Conselho Diretor do IFMA Campus Zé Doca para o ano de 2025, conforme a Resolução nº 3/2025?",
+    "ground_truth": "Não encontrei evidências suficientes nos documentos indexados para responder a esta pergunta. O arquivo 1377.md contém o Calendário de Reuniões Ordinárias do Conselho Diretor do IFMA Campus Zé Doca para 2025 aprovado por resolução específica, porém o conteúdo detalhado com as datas não estava disponível no trecho lido do documento.",
+    "source": "1377.md"
   },
   {
     "id": 100,
-    "question": "De quem é a responsabilidade principal pela elaboração do Plano de Ação Trienal dos Cursos de Graduação (PATCG)?",
-    "ground_truth": "A responsabilidade pela elaboração do PATCG é da Coordenadoria de Curso e do Núcleo Docente Estruturante (NDE), contando com a colaboração dos demais docentes e técnicos administrativos vinculados ao respectivo curso."
-  },
-  {
-    "id": 101,
-    "question": "Qual é a idade mínima exigida para que um estudante do IFMA possa realizar estágio supervisionado?",
-    "ground_truth": "A idade mínima exigida para estagiar é de 16 anos."
-  },
-  {
-    "id": 102,
-    "question": "Em cursos ofertados na modalidade de Educação a Distância (EaD) pelo IFMA, como deve ser a execução do estágio?",
-    "ground_truth": "Nos cursos ofertados na modalidade EaD, o estágio deverá ser integralmente realizado de forma presencial."
-  },
-  {
-    "id": 103,
-    "question": "O cumprimento e a conclusão de um estágio não obrigatório podem ser utilizados como condição para a integralização do curso do estudante?",
-    "ground_truth": "Não. Em nenhuma hipótese, ainda que tenha sido iniciado pelo estudante, a conclusão do estágio não obrigatório constituirá condição para a integralização do curso."
-  },
-  {
-    "id": 104,
-    "question": "Quais são as formas estabelecidas para o acesso de estudantes indígenas aos cursos técnicos e de graduação do IFMA?",
-    "ground_truth": "O acesso se dá por meio das Normas Gerais de Acesso à Educação Profissional e Superior do IFMA; mediante Processo Seletivo Específico Indígena (com 2 vagas suplementares por curso); ou por meio de editais próprios no caso de cursos de pós-graduação."
-  },
-  {
-    "id": 105,
-    "question": "Qual departamento é responsável por coordenar a Política de Acesso, Permanência e Êxito dos Povos Indígenas (PAPEPI) no IFMA?",
-    "ground_truth": "A PAPEPI é coordenada pelo Departamento de Direitos Humanos e Inclusão Social (DDHIS), vinculado à Pró-Reitoria de Ensino e Assuntos Estudantis (Prenae)."
-  },
-  {
-    "id": 106,
-    "question": "Qual é o instrumento obrigatório que o IFMA deve instituir para registrar as operações de tratamento de informações sob a Lei Geral de Proteção de Dados (LGPD)?",
-    "ground_truth": "O IFMA deve estabelecer o Inventário de Dados Pessoais (IDP), que é o documento primordial para registrar as operações de tratamentos de dados pessoais realizados na instituição."
-  },
-  {
-    "id": 107,
-    "question": "Como é composto o Comitê de Proteção de Dados Pessoais (CPDP) do IFMA?",
-    "ground_truth": "O CPDP é formado por cinco membros: o Gestor de Segurança da Informação, o Encarregado pelo Tratamento de Dados Pessoais, um representante da Ouvidoria Institucional, um representante da Auditoria Interna e um representante indicado pelo Reitor."
-  },
-  {
-    "id": 108,
-    "question": "Qual é a natureza e a principal finalidade do Colégio de Dirigentes (COLDIR) no IFMA?",
-    "ground_truth": "O COLDIR possui caráter consultivo e atua como órgão de apoio ao processo decisório da Reitoria."
-  },
-  {
-    "id": 109,
-    "question": "Quem são os membros que integram oficialmente a estrutura do Colégio de Dirigentes (COLDIR)?",
-    "ground_truth": "O COLDIR é composto pelo Reitor (como presidente), pelos Pró-Reitores e pelos Diretores-Gerais dos Campi."
-  },
-  {
-    "id": 110,
-    "question": "Que tipo de matérias no Colégio de Dirigentes (COLDIR) exige um quórum qualificado de 2/3 dos membros presentes para deliberação?",
-    "ground_truth": "Matérias que envolvem a apreciação e recomendação de distribuição de recursos orçamentários e a criação ou alteração de funções e órgãos administrativos da estrutura organizacional exigem quórum qualificado de 2/3 dos membros presentes."
-  },
-  {
-    "id": 111,
-    "question": "Qual é a finalidade central da Comissão Interna de Supervisão do Plano de Carreira dos Cargos Técnico-Administrativos em Educação (CIS/PCCTAE)?",
-    "ground_truth": "A finalidade da CIS/PCCTAE é acompanhar, orientar, fiscalizar e avaliar a implementação do Plano de Carreira dos Cargos Técnico-Administrativos em Educação no âmbito do IFMA."
-  },
-  {
-    "id": 112,
-    "question": "Qual é o tempo de mandato dos membros da CIS/PCCTAE e quantas reconduções são permitidas?",
-    "ground_truth": "O mandato dos membros da comissão é de 3 anos, sendo permitida uma única recondução."
-  },
-  {
-    "id": 113,
-    "question": "Qual é a antecedência mínima necessária para que os pesquisadores solicitem o agendamento de uso nos Laboratórios de Pesquisa Multiusuários do IFMA?",
-    "ground_truth": "O agendamento de uso da infraestrutura e dos equipamentos deverá ser solicitado com, no mínimo, 7 dias de antecedência."
-  },
-  {
-    "id": 114,
-    "question": "É permitido o empréstimo de equipamentos dos laboratórios multiusuários do IFMA para utilização fora de suas instalações?",
-    "ground_truth": "Não. É expressamente vedado o empréstimo de equipamentos ou acessórios para uso fora do laboratório."
-  },
-  {
-    "id": 115,
-    "question": "A quem se destina a Política de Assistência Estudantil (PAE) do IFMA de modo geral?",
-    "ground_truth": "A Política é destinada aos estudantes regularmente matriculados e frequentes em cursos superiores presenciais de graduação e em cursos presenciais de educação profissional técnica de nível médio, exigindo-se que o público-alvo a ser atendido possua um perfil de vulnerabilidade."
+    "question": "Segundo o Regulamento dos Programas Específicos de Assistência Primária do IFMA, o Auxílio Emergencial pode ser acumulado com outros auxílios de transferência direta?",
+    "ground_truth": "Não encontrei evidências suficientes nos documentos indexados para responder a esta pergunta. O arquivo 1377.md não trata de regulamento de assistência estudantil — ele contém o Calendário de Reuniões Ordinárias do Conselho Diretor do IFMA Campus Zé Doca para 2025. A informação sobre acúmulo de auxílios consta no arquivo 655.md.",
+    "source": "1377.md"
   }
 ]
