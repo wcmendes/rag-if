@@ -1,9 +1,22 @@
 import os
 import requests
 
+SYSTEM_PROMPT = (
+    "Você é um assistente especializado em documentos normativos institucionais.\n\n"
+    "REGRAS OBRIGATÓRIAS — siga-as sem exceção:\n"
+    "1. Responda SOMENTE com base nos trechos de documentos fornecidos na mensagem do usuário.\n"
+    "2. NÃO use conhecimento externo, treinamento prévio ou inferências além do que está escrito nos documentos.\n"
+    "3. NÃO complete, extrapole ou suponha informações ausentes nos documentos.\n"
+    "4. Se os documentos não contiverem informação suficiente, responda exatamente: "
+    "'Não encontrei evidências suficientes nos documentos indexados para responder a esta pergunta.'\n"
+    "5. Cite apenas fatos que estejam explicitamente no texto dos documentos fornecidos.\n"
+    "6. Se documentos diferentes apresentarem informações contraditórias, descreva o que cada um diz "
+    "citando apenas o que está escrito — não interprete nem julgue qual prevalece.\n"
+    "7. Responda sempre em português do Brasil."
+)
+
 
 def _format_context(chunks: list[dict]) -> str:
-    """Format chunks with their document metadata as visible headers."""
     parts = []
     for chunk in chunks:
         meta = chunk['metadata']
@@ -24,47 +37,39 @@ def _format_context(chunks: list[dict]) -> str:
     return '\n\n---\n\n'.join(parts)
 
 
-def _build_prompt(question: str, chunks: list[dict]) -> str:
+def _build_user_message(question: str, chunks: list[dict]) -> str:
     context = _format_context(chunks)
-    return (
-        "INSTRUÇÃO OBRIGATÓRIA: Você DEVE responder EXCLUSIVAMENTE em português do Brasil. "
-        "Não use nenhuma outra língua, independentemente do idioma dos documentos ou do modelo.\n\n"
-        "Você é um assistente especializado em documentos normativos institucionais.\n"
-        "Responda à pergunta abaixo com base APENAS nos trechos de documentos fornecidos.\n\n"
-        "REGRA PARA CONFLITOS: Se documentos diferentes apresentarem informações contraditórias "
-        "sobre o mesmo assunto, identifique explicitamente o conflito. Cite qual norma é mais "
-        "antiga e qual é mais recente, e o que cada uma estabelece. "
-        "Exemplo: 'A Portaria X (publicada em 2022) estabelecia Y. "
-        "A Resolução Z (publicada em 2024) alterou essa regra para W.'\n\n"
-        "Se as informações nos documentos não forem suficientes para responder, "
-        "diga claramente que não encontrou evidências nos documentos indexados.\n\n"
-        f"Documentos:\n{context}\n\n"
-        f"Pergunta: {question}\n\n"
-        "Resposta em português do Brasil:"
-    )
+    return f"Documentos:\n{context}\n\nPergunta: {question}"
 
 
-def _call_ollama(prompt: str) -> str:
-    model = os.getenv('OLLAMA_MODEL', 'llama3.2')
+def _call_ollama(question: str, chunks: list[dict]) -> str:
+    model = os.getenv('OLLAMA_MODEL', 'qwen2.5:7b')
     url = os.getenv('OLLAMA_URL', 'http://localhost:11434')
+    messages = [
+        {'role': 'system', 'content': SYSTEM_PROMPT},
+        {'role': 'user', 'content': _build_user_message(question, chunks)},
+    ]
     response = requests.post(
-        f'{url}/api/generate',
-        json={'model': model, 'prompt': prompt, 'stream': False},
+        f'{url}/api/chat',
+        json={'model': model, 'messages': messages, 'stream': False},
         timeout=600,
     )
     if not response.ok:
         print(f"Ollama error {response.status_code}: {response.text}")
     response.raise_for_status()
-    return response.json()['response'].strip()
+    return response.json()['message']['content'].strip()
 
 
-def _call_openai(prompt: str) -> str:
+def _call_openai(question: str, chunks: list[dict]) -> str:
     import openai
     client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
     model = os.getenv('OPENAI_MODEL', 'gpt-4o-mini')
     response = client.chat.completions.create(
         model=model,
-        messages=[{'role': 'user', 'content': prompt}],
+        messages=[
+            {'role': 'system', 'content': SYSTEM_PROMPT},
+            {'role': 'user', 'content': _build_user_message(question, chunks)},
+        ],
         temperature=0.2,
     )
     return response.choices[0].message.content.strip()
@@ -74,9 +79,8 @@ def generate_answer(question: str, chunks: list[dict]) -> str:
     if not chunks:
         return "Não foram encontrados documentos relevantes para responder à pergunta."
 
-    prompt = _build_prompt(question, chunks)
     provider = os.getenv('LLM_PROVIDER', 'ollama').lower()
 
     if provider == 'openai':
-        return _call_openai(prompt)
-    return _call_ollama(prompt)
+        return _call_openai(question, chunks)
+    return _call_ollama(question, chunks)
