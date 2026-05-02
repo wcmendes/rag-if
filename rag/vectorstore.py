@@ -1,3 +1,7 @@
+"""Gerencia o vetor store ChromaDB persistente: indexação, busca e consulta por ID."""
+
+__author__ = "William Mendes"
+
 from __future__ import annotations
 
 import os
@@ -42,7 +46,7 @@ def search(query_embedding: list[float], n_results: int = 5) -> dict:
 
 
 def get_by_ids(ids: list[str]) -> list[dict]:
-    """Fetch specific chunks by their chunk_id."""
+    """Busca chunks específicos pelo seu chunk_id."""
     if not ids:
         return []
     collection = get_collection()
@@ -56,7 +60,7 @@ def get_by_ids(ids: list[str]) -> list[dict]:
 
 
 def is_indexed(filename: str) -> bool:
-    """Return True if this file already has chunks in the collection."""
+    """Retorna True se o arquivo já possui chunks na coleção."""
     collection = get_collection()
     results = collection.get(
         where={"source_file": filename},

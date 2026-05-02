@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Index all documents found in data/raw/ into the local vector store."""
+"""Indexa todos os documentos encontrados em data/raw/ no vetor store local."""
+
+__author__ = "William Mendes"
+
 import argparse
 import sys
 from pathlib import Path
@@ -64,7 +67,7 @@ def main() -> None:
         segments = extract_text(doc['path'], doc['file_type'])
         print(f"  Segments extracted: {len(segments)}")
 
-        # Auto-extract metadata from content, then apply manual overrides
+        # Extrai metadados automaticamente do conteúdo e aplica sobrescrições manuais
         doc_meta = extract_doc_meta(segments, doc['path'], doc['file_type'])
         manual = sidecar.get(doc['filename'], {})
         if manual.get('title'):

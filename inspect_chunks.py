@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""List all indexed chunks. Useful for debugging."""
+"""Lista todos os chunks indexados. Útil para depuração."""
+
+__author__ = "William Mendes"
+
 import sys
 from dotenv import load_dotenv
 
@@ -17,7 +20,7 @@ def main() -> None:
         print("Nenhum chunk encontrado. Execute python ingest.py primeiro.")
         return
 
-    # Optional filter by filename: python inspect_chunks.py arquivo1.html
+    # Filtro opcional por nome de arquivo: python inspect_chunks.py arquivo1.html
     source_filter = sys.argv[1] if len(sys.argv) > 1 else None
 
     results = collection.get(include=['documents', 'metadatas'])

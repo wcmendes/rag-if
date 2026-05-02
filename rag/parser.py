@@ -1,3 +1,7 @@
+"""Extrai e limpa texto de documentos HTML, TXT e PDF; detecta metadados normativos."""
+
+__author__ = "William Mendes"
+
 from __future__ import annotations
 
 import re
@@ -40,7 +44,7 @@ def parse_txt(path: str) -> str:
 
 
 def parse_pdf(path: str) -> list[dict]:
-    """Return one segment per page: {'page': int, 'text': str}."""
+    """Retorna um segmento por página: {'page': int, 'text': str}."""
     doc = fitz.open(path)
     pages = []
     for page_num, page in enumerate(doc, start=1):
@@ -53,8 +57,8 @@ def parse_pdf(path: str) -> list[dict]:
 
 def extract_text(path: str, file_type: str) -> list[dict]:
     """
-    Returns list of {'text': str, 'page': int|None}.
-    PDF: one entry per page. HTML/TXT: single entry.
+    Retorna lista de {'text': str, 'page': int|None}.
+    PDF: uma entrada por página. HTML/TXT: entrada única.
     """
     if file_type == 'pdf':
         return parse_pdf(path)
@@ -65,14 +69,14 @@ def extract_text(path: str, file_type: str) -> list[dict]:
 
 def extract_doc_meta(segments: list[dict], path: str = '', file_type: str = '') -> dict:
     """
-    Extract document-level metadata from parsed content.
-    Returns: doc_title, doc_date, doc_number.
+    Extrai metadados a nível de documento do conteúdo processado.
+    Retorna: doc_title, doc_date, doc_number.
     """
     full_text = '\n\n'.join(s['text'] for s in segments)
     meta: dict = {'doc_title': '', 'doc_date': '', 'doc_number': ''}
 
     # --- doc_title ---
-    # For HTML, prefer the <title> or first <h1>/<h2> tag
+    # Para HTML, prefere a tag <title> ou o primeiro <h1>/<h2>
     if file_type == 'html' and path:
         try:
             with open(path, 'r', encoding='utf-8', errors='replace') as f:
@@ -85,7 +89,7 @@ def extract_doc_meta(segments: list[dict], path: str = '', file_type: str = '') 
         except Exception:
             pass
 
-    # Fallback: first meaningful line of text
+    # Fallback: primeira linha significativa do texto
     if not meta['doc_title']:
         for line in full_text.split('\n'):
             line = line.strip()
@@ -97,7 +101,7 @@ def extract_doc_meta(segments: list[dict], path: str = '', file_type: str = '') 
     match = _DOC_NUMBER.search(full_text)
     if match:
         meta['doc_number'] = match.group(0).strip()
-        # Use as title if it's more descriptive
+        # Usa como título se for mais descritivo
         if not meta['doc_title'] or len(meta['doc_number']) > len(meta['doc_title']):
             meta['doc_title'] = meta['doc_number']
 

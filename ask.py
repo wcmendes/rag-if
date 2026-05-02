@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Query the indexed documents and print the answer with sources."""
+"""Consulta os documentos indexados e imprime a resposta com as fontes."""
+
+__author__ = "William Mendes"
+
 import sys
 from dotenv import load_dotenv
 
@@ -11,14 +14,14 @@ from rag.generator import generate_answer
 
 def query_rag(question: str, n_results: int = 5) -> dict:
     """
-    Structured RAG result for programmatic / evaluation use.
+    Resultado estruturado do RAG para uso programático / avaliação.
 
-    Returns:
-      question    - the input question
-      answer      - generated answer (or a 'not found' message)
-      contexts    - list of chunk texts used as context
-      source_ids  - chunk_id for each context chunk
-      file_names  - source_file for each context chunk
+    Retorna:
+      question    - a pergunta de entrada
+      answer      - resposta gerada (ou mensagem de 'não encontrado')
+      contexts    - lista de textos dos chunks usados como contexto
+      source_ids  - chunk_id de cada chunk de contexto
+      file_names  - source_file de cada chunk de contexto
     """
     chunks = retrieve(question, n_results=n_results)
     if not chunks:

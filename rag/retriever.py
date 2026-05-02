@@ -1,10 +1,14 @@
+"""Busca semântica no vetor store com expansão de janela de contexto para o LLM."""
+
+__author__ = "William Mendes"
+
 import os
 from rag.embedder import embed_query
 from rag.vectorstore import search, get_by_ids
 
 
 def _neighbor_ids(chunks: list[dict], window: int) -> list[str]:
-    """Compute chunk IDs of neighbors within ±window positions."""
+    """Calcula os IDs dos chunks vizinhos dentro de ±window posições."""
     ids = []
     for chunk in chunks:
         meta = chunk['metadata']
@@ -24,10 +28,9 @@ def _neighbor_ids(chunks: list[dict], window: int) -> list[str]:
 
 def retrieve(question: str, n_results: int = 5) -> list[dict]:
     """
-    Retrieve top-n relevant chunks by semantic similarity, then expand
-    each result with its adjacent chunks (context_window on each side).
-    The final list is sorted by document and position so the LLM reads
-    coherent passages in order.
+    Recupera os top-n chunks mais relevantes por similaridade semântica, expandindo
+    cada resultado com os chunks adjacentes (context_window de cada lado).
+    A lista final é ordenada por documento e posição para leitura coerente pelo LLM.
     """
     context_window = int(os.getenv('CONTEXT_WINDOW', '1'))
 
@@ -55,7 +58,7 @@ def retrieve(question: str, n_results: int = 5) -> list[dict]:
         neighbors = get_by_ids(list(set(ids_to_fetch)))
         matched = matched + neighbors
 
-    # Deduplicate and sort by (document, position) for coherent reading order
+    # Deduplicação e ordenação por (documento, posição) para leitura coerente
     seen: set[str] = set()
     unique: list[dict] = []
     for chunk in matched:

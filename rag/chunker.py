@@ -1,3 +1,7 @@
+"""Divide segmentos de documentos em chunks baseados em parágrafos com metadados completos."""
+
+__author__ = "William Mendes"
+
 from __future__ import annotations
 
 import hashlib
@@ -10,8 +14,8 @@ def _doc_id(filename: str) -> str:
 
 def _split_paragraphs(text: str, min_words: int = 80, max_words: int = 350) -> list[str]:
     """
-    Split text at blank lines, then group small paragraphs together
-    and break overly long ones, preserving paragraph boundaries.
+    Divide o texto em parágrafos (linhas em branco como delimitadores), agrupa os
+    pequenos e quebra os muito longos, preservando os limites de parágrafo.
     """
     raw = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
 
@@ -23,18 +27,18 @@ def _split_paragraphs(text: str, min_words: int = 80, max_words: int = 350) -> l
         word_count = len(para.split())
 
         if word_count > max_words:
-            # Flush accumulated parts first
+            # Esvazia as partes acumuladas antes de continuar
             if current_parts:
                 chunks.append('\n\n'.join(current_parts))
                 current_parts = []
                 current_words = 0
-            # Break the long paragraph by word count
+            # Quebra o parágrafo longo por contagem de palavras
             words = para.split()
             for i in range(0, len(words), max_words):
                 chunks.append(' '.join(words[i:i + max_words]))
 
         elif current_words + word_count > max_words and current_words >= min_words:
-            # Current group is full — flush and start new
+            # Grupo atual cheio — salva e inicia um novo
             chunks.append('\n\n'.join(current_parts))
             current_parts = [para]
             current_words = word_count
@@ -58,11 +62,11 @@ def chunk_document(
     max_words: int = 350,
 ) -> list[dict]:
     """
-    Split document segments into paragraph-based chunks with full metadata.
+    Divide os segmentos do documento em chunks baseados em parágrafos, com metadados completos.
 
-    Metadata per chunk:
+    Metadados por chunk:
       source_file, file_type, chunk_id, doc_id, chunk_position, total_chunks,
-      doc_title, doc_date, doc_number, page (PDF only).
+      doc_title, doc_date, doc_number, page (somente PDF).
     """
     if doc_meta is None:
         doc_meta = {}
@@ -97,7 +101,7 @@ def chunk_document(
             })
             position += 1
 
-    # Second pass: stamp total_chunks so every chunk knows the document size
+    # Segunda passagem: registra total_chunks para que cada chunk conheça o tamanho do documento
     total = len(chunks)
     for chunk in chunks:
         chunk['metadata']['total_chunks'] = total

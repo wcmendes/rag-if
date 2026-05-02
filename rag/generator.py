@@ -1,3 +1,7 @@
+"""Gera respostas em linguagem natural via LLM (Ollama local ou OpenAI) com base nos chunks recuperados."""
+
+__author__ = "William Mendes"
+
 import os
 import requests
 

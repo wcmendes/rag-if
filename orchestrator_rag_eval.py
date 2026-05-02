@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 """
-Orchestrator for RAG evaluation pipeline.
+Orquestrador do pipeline de avaliação RAG.
 
 Pipeline:
-  collect   — read perguntas.json → run RAG per question → save respostas_rag.json
-  evaluate  — read respostas_rag.json → run RAGAS → save resultados_ragas/
-  all       — collect + evaluate in sequence
+  collect   — lê perguntas.json → executa RAG por pergunta → salva respostas_rag.json
+  evaluate  — lê respostas_rag.json → executa RAGAS → salva resultados_ragas/
+  all       — collect + evaluate em sequência
 
 CLI:
   python orchestrator_rag_eval.py --mode collect  --input perguntas.json --output respostas_rag.json
   python orchestrator_rag_eval.py --mode evaluate --input respostas_rag.json --output-dir ./resultados_ragas
   python orchestrator_rag_eval.py --mode all      --input perguntas.json  --output respostas_rag.json --output-dir ./resultados_ragas
 
-Checkpoint / resume:
-  collect saves after every question. If interrupted, re-running with the same
-  --output file will skip already-processed questions automatically.
+Checkpoint / retomada:
+  O modo collect salva após cada pergunta. Se interrompido, reexecutar com o mesmo
+  arquivo --output pula automaticamente as perguntas já processadas.
 
-RAGAS version:
-  Targets ragas>=0.2.0. Falls back to the 0.1.x API if an older version is detected.
+Versão RAGAS:
+  Compatível com ragas>=0.2.0. Usa a API 0.1.x como fallback se versão anterior for detectada.
 """
+__author__ = "William Mendes"
+
 from __future__ import annotations
 
 import argparse
@@ -56,7 +58,7 @@ for _lib in ("httpx", "httpcore", "sentence_transformers", "huggingface_hub"):
 # ── 1. Input handling ──────────────────────────────────────────────────────────
 
 def load_questions(path: str) -> list[dict[str, Any]]:
-    """Load and validate perguntas.json. Skips items without question/ground_truth."""
+    """Carrega e valida perguntas.json. Ignora itens sem question/ground_truth."""
     p = Path(path)
     if not p.exists():
         logger.error("Input file not found: %s", path)
@@ -93,9 +95,9 @@ def load_questions(path: str) -> list[dict[str, Any]]:
 # ── 2. RAG call ────────────────────────────────────────────────────────────────
 
 def call_ask(question: str, n_results: int = 5) -> dict[str, Any]:
-    """Call query_rag() from ask.py and return its raw output."""
+    """Chama query_rag() de ask.py e retorna o resultado bruto."""
     try:
-        # Imported here to avoid loading heavy models at orchestrator startup
+        # Importado aqui para evitar carregar modelos pesados na inicialização do orquestrador
         from ask import query_rag  # type: ignore[import]
         return query_rag(question, n_results=n_results)
     except Exception as exc:
@@ -111,10 +113,10 @@ def call_ask(question: str, n_results: int = 5) -> dict[str, Any]:
 
 def normalize_ask_output(raw: dict[str, Any], original: dict[str, Any]) -> dict[str, Any]:
     """
-    Merge the original question record with the RAG output.
+    Mescla o registro original da pergunta com a saída do RAG.
 
-    Preserves all original fields (id, question, ground_truth, ...) and
-    appends answer, contexts, and optional metadata.
+    Preserva todos os campos originais (id, question, ground_truth, ...) e
+    acrescenta answer, contexts e metadados opcionais.
     """
     result: dict[str, Any] = {**original}
     result["answer"] = raw.get("answer", "")
@@ -135,8 +137,8 @@ def normalize_ask_output(raw: dict[str, Any], original: dict[str, Any]) -> dict[
 
 def load_checkpoint(output_path: str) -> dict[Any, dict[str, Any]]:
     """
-    Load the existing output file as {id_or_question → record} for resume support.
-    Returns an empty dict if the file does not exist or cannot be parsed.
+    Carrega o arquivo de saída existente como {id_ou_pergunta → registro} para suporte a retomada.
+    Retorna dict vazio se o arquivo não existir ou não puder ser parseado.
     """
     p = Path(output_path)
     if not p.exists():
@@ -167,7 +169,7 @@ def load_checkpoint(output_path: str) -> dict[Any, dict[str, Any]]:
 
 
 def _atomic_write_json(path: str, data: Any) -> None:
-    """Write JSON atomically: write to a temp file then rename."""
+    """Grava JSON atomicamente: escreve em arquivo temporário e renomeia."""
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     tmp = p.with_suffix(".tmp")
@@ -181,14 +183,14 @@ def _atomic_write_json(path: str, data: Any) -> None:
 
 
 def save_incremental_results(results: list[dict[str, Any]], output_path: str) -> None:
-    """Atomically save the current results list after every question."""
+    """Salva atomicamente a lista de resultados após cada pergunta."""
     _atomic_write_json(output_path, results)
 
 
 # ── 4. Final multi-format save ─────────────────────────────────────────────────
 
 def save_all_formats(results: list[dict[str, Any]], output_path: str) -> None:
-    """Save the enriched dataset as JSON, JSONL, and CSV."""
+    """Salva o dataset enriquecido nos formatos JSON, JSONL e CSV."""
     base = Path(output_path)
 
     _atomic_write_json(str(base), results)
@@ -215,7 +217,7 @@ def save_all_formats(results: list[dict[str, Any]], output_path: str) -> None:
 # ── 5. RAGAS version detection ─────────────────────────────────────────────────
 
 def _detect_ragas_version() -> tuple[int, int]:
-    """Return (major, minor) of the installed ragas package."""
+    """Retorna (major, minor) da versão instalada do pacote ragas."""
     try:
         import ragas  # noqa: PLC0415
         parts = ragas.__version__.split(".")
@@ -233,7 +235,7 @@ def _detect_ragas_version() -> tuple[int, int]:
 
 def map_to_ragas_schema(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """
-    Map external naming to RAGAS internal schema:
+    Mapeia nomenclatura externa para o schema interno do RAGAS:
       question     → user_input
       answer       → response
       contexts     → retrieved_contexts
@@ -261,14 +263,14 @@ def map_to_ragas_schema(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def configure_ragas_models() -> tuple[Any, Any]:
     """
-    Configure and return (llm, embeddings) for RAGAS using the native 0.4.x API.
+    Configura e retorna (llm, embeddings) para o RAGAS usando a API nativa 0.4.x.
 
-    Env vars:
-      RAGAS_LLM_PROVIDER    = openai | ollama           (default: openai)
-      RAGAS_JUDGE_MODEL     = model name                (default: gpt-4o-mini)
-      RAGAS_EMBEDDING_MODEL = embedding model name      (default: text-embedding-3-small)
-      OPENAI_API_KEY        = required when provider=openai
-      OLLAMA_URL            = Ollama base URL           (default: http://localhost:11434)
+    Variáveis de ambiente:
+      RAGAS_LLM_PROVIDER    = openai | ollama           (padrão: openai)
+      RAGAS_JUDGE_MODEL     = nome do modelo            (padrão: gpt-4o-mini)
+      RAGAS_EMBEDDING_MODEL = nome do modelo de emb.   (padrão: text-embedding-3-small)
+      OPENAI_API_KEY        = obrigatória se provider=openai
+      OLLAMA_URL            = URL base do Ollama        (padrão: http://localhost:11434)
     """
     provider = os.getenv("RAGAS_LLM_PROVIDER", "openai").lower()
 
@@ -381,8 +383,8 @@ def _try_import_metric(module_paths: list[str], names: list[str]) -> tuple[Any, 
 
 def _load_metrics_v2() -> list[Any]:
     """
-    Instantiate RAGAS metrics (0.2.x / 0.4.x).
-    LLM/embeddings are injected later via the evaluate() call.
+    Instancia as métricas RAGAS (0.2.x / 0.4.x).
+    LLM/embeddings são injetados depois pela chamada a evaluate().
     """
     loaded: list[Any] = []
     loaded_names: list[str] = []
@@ -418,7 +420,7 @@ def _load_metrics_v2() -> list[Any]:
 # ── 9. RAGAS evaluation runners ────────────────────────────────────────────────
 
 def run_ragas_evaluation(results: list[dict[str, Any]]) -> Any:
-    """Dispatch to the correct RAGAS API based on installed version."""
+    """Despacha para a API RAGAS correta com base na versão instalada."""
     major, minor = _detect_ragas_version()
     logger.info("Detected ragas %d.%d", major, minor)
 
@@ -433,7 +435,7 @@ def run_ragas_evaluation(results: list[dict[str, Any]]) -> Any:
 
 
 def _run_ragas_v1(mapped: list[dict[str, Any]]) -> Any:
-    """Legacy RAGAS 0.1.x path."""
+    """Caminho legado para RAGAS 0.1.x."""
     logger.info("Using legacy RAGAS 0.1.x API")
     try:
         from ragas import evaluate  # noqa: PLC0415
@@ -463,7 +465,7 @@ def _run_ragas_v1(mapped: list[dict[str, Any]]) -> Any:
 
 
 def _run_ragas_v2(mapped: list[dict[str, Any]]) -> Any:
-    """Modern RAGAS 0.2.x path."""
+    """Caminho moderno para RAGAS 0.2.x."""
     logger.info("Using RAGAS 0.2.x API")
     try:
         from ragas import evaluate, EvaluationDataset  # noqa: PLC0415
@@ -502,10 +504,10 @@ def _run_ragas_v2(mapped: list[dict[str, Any]]) -> Any:
         from ragas import RunConfig  # noqa: PLC0415
         provider = os.getenv("RAGAS_LLM_PROVIDER", "openai").lower()
         if provider == "ollama":
-            # Local models handle one request at a time
+            # Modelos locais processam uma requisição por vez
             run_config = RunConfig(timeout=600, max_retries=2, max_wait=60, max_workers=1)
         else:
-            # Cloud APIs — lower workers to avoid rate limit cascades on large contexts
+            # APIs em nuvem — menos workers para evitar cascata de rate limit em contextos longos
             run_config = RunConfig(timeout=600, max_retries=3, max_wait=90, max_workers=4)
     except ImportError:
         run_config = None
@@ -522,7 +524,7 @@ def _run_ragas_v2(mapped: list[dict[str, Any]]) -> Any:
 # ── 10. Save RAGAS outputs ─────────────────────────────────────────────────────
 
 def save_ragas_outputs(result: Any, output_dir: str) -> None:
-    """Save RAGAS results as CSV and JSON, and print the scores summary."""
+    """Salva os resultados do RAGAS em CSV e JSON e imprime o resumo dos scores."""
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -544,7 +546,7 @@ def save_ragas_outputs(result: Any, output_dir: str) -> None:
     try:
         scores = result.scores if hasattr(result, "scores") else {}
         if not scores and hasattr(result, "__iter__"):
-            # v1 result may be dict-like
+            # resultado v1 pode ser dict-like
             scores = dict(result)
         for metric_name, score in scores.items():
             try:
@@ -562,15 +564,15 @@ def run_collect(
     input_path: str, output_path: str, n_results: int = 5
 ) -> list[dict[str, Any]]:
     """
-    Run RAG for every question in input_path.
+    Executa o RAG para cada pergunta em input_path.
 
-    Skips questions already present in output_path (resume support).
-    Saves incrementally after every question to prevent data loss on interruption.
+    Pula perguntas já presentes em output_path (suporte a retomada).
+    Salva incrementalmente após cada pergunta para evitar perda de dados em interrupções.
     """
     questions = load_questions(input_path)
     checkpoint = load_checkpoint(output_path)
 
-    # Build ordered results list: checkpoint first (preserves order), then new items
+    # Constrói lista ordenada: checkpoint primeiro (preserva ordem), depois novos itens
     results: list[dict[str, Any]] = list(checkpoint.values())
     processed_keys: set[Any] = set(checkpoint.keys())
 
@@ -595,7 +597,7 @@ def run_collect(
         processed_keys.add(key)
         processed += 1
 
-        # Save after every question (checkpoint)
+        # Salva após cada pergunta (checkpoint)
         save_incremental_results(results, output_path)
         logger.info("  → %d context(s) | checkpoint saved", len(enriched.get("contexts", [])))
 
@@ -613,7 +615,7 @@ def run_collect(
 # ── 12. Evaluate mode ──────────────────────────────────────────────────────────
 
 def run_evaluate(input_path: str, output_dir: str) -> None:
-    """Load respostas_rag.json and run RAGAS evaluation."""
+    """Carrega respostas_rag.json e executa a avaliação com RAGAS."""
     p = Path(input_path)
     if not p.exists():
         logger.error("Enriched dataset not found: %s", input_path)
