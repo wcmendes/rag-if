@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG-IF · Consulta de Normativos</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #1a6b3a;
+      --green2: #22883f;
+      --gold:   #c8972a;
+      --bg:     #f4f6f9;
+      --card:   #ffffff;
+      --text:   #1e2a38;
+      --muted:  #6b7a8d;
+      --border: #dde3ec;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green2) 100%);
+      color: #fff;
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    }
+
+    header img {
+      height: 72px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.3));
+    }
+
+    .header-text h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .header-text p {
+      font-size: .9rem;
+      opacity: .85;
+      margin-top: 4px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    /* ── SEARCH CARD ── */
+    .search-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .search-card label {
+      display: block;
+      font-weight: 600;
+      font-size: .95rem;
+      margin-bottom: 12px;
+      color: var(--green);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .search-row input {
+      flex: 1;
+      padding: 14px 18px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    .search-row input:focus {
+      border-color: var(--green2);
+      background: #fff;
+    }
+
+    .search-row button {
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green2) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s, transform .1s;
+      white-space: nowrap;
+    }
+
+    .search-row button:hover  { opacity: .9; }
+    .search-row button:active { transform: scale(.98); }
+    .search-row button:disabled { opacity: .55; cursor: not-allowed; }
+
+    /* ── SPINNER ── */
+    .spinner {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .spinner.active { display: flex; }
+
+    .spinner-ring {
+      width: 20px; height: 20px;
+      border: 3px solid var(--border);
+      border-top-color: var(--green2);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── RESULT ── */
+    #result { display: none; }
+
+    .answer-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--green2);
+    }
+
+    .answer-card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 14px;
+    }
+
+    #answer-text {
+      font-size: 1rem;
+      line-height: 1.75;
+      white-space: pre-wrap;
+      color: var(--text);
+    }
+
+    /* ── SOURCES ── */
+    .sources-title {
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .source-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .source-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+      font-size: .875rem;
+    }
+
+    .source-item .field { display: flex; gap: 6px; }
+    .source-item .field-label { color: var(--muted); white-space: nowrap; }
+    .source-item .field-value { font-weight: 500; color: var(--text); }
+
+    .source-item .doc-number-badge {
+      grid-column: 1 / -1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eaf4ee;
+      color: var(--green);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-weight: 700;
+      font-size: .85rem;
+      width: fit-content;
+      margin-bottom: 4px;
+    }
+
+    /* ── ERROR ── */
+    .error-msg {
+      background: #fff0f0;
+      border: 1px solid #f5c6c6;
+      color: #c0392b;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: .9rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green);
+      color: rgba(255,255,255,.85);
+      text-align: center;
+      padding: 20px 24px;
+      font-size: .82rem;
+      line-height: 1.7;
+    }
+
+    footer strong { color: #fff; }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.2);
+      margin: 10px auto;
+      width: 120px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="/images/ragif.png" alt="RAG-IF logo" />
+  <div class="header-text">
+    <h1>RAG-IF · Consulta de Normativos</h1>
+    <p>Pesquisa semântica em resoluções, portarias e instruções normativas institucionais</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="search-card">
+    <label for="question">Faça sua pergunta sobre os normativos</label>
+    <div class="search-row">
+      <input
+        id="question"
+        type="text"
+        placeholder="Ex.: Quais são os requisitos para afastamento para qualificação?"
+        autocomplete="off"
+      />
+      <button id="btn-ask" onclick="doAsk()">Consultar</button>
+    </div>
+    <div class="spinner" id="spinner">
+      <div class="spinner-ring"></div>
+      <span>Consultando documentos e gerando resposta…</span>
+    </div>
+  </div>
+
+  <div id="result">
+    <div class="answer-card">
+      <h2>Resposta</h2>
+      <div id="answer-text"></div>
+    </div>
+
+    <div id="sources-section" style="display:none">
+      <p class="sources-title">Fontes consultadas</p>
+      <div class="source-list" id="source-list"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Instituto Federal de Educação, Ciência e Tecnologia do Maranhão — IFMA</strong><br/>
+  Diretoria de Gestão de Tecnologia da Informação · DIGTI<br/>
+  <hr class="footer-divider"/>
+  Desenvolvido por <strong>William Mendes</strong> ·
+  <a href="mailto:william.mendes@ifma.edu.br">william.mendes@ifma.edu.br</a><br/>
+  RAG-IF · Geração Aumentada de Recuperação sobre normativos institucionais
+</footer>
+
+<script>
+  const input = document.getElementById('question');
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') doAsk(); });
+
+  async function doAsk() {
+    const question = input.value.trim();
+    if (!question) { input.focus(); return; }
+
+    const btn     = document.getElementById('btn-ask');
+    const spinner = document.getElementById('spinner');
+    const result  = document.getElementById('result');
+
+    btn.disabled = true;
+    spinner.classList.add('active');
+    result.style.display = 'none';
+
+    try {
+      const res  = await fetch('/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question }),
+      });
+      const data = await res.json();
+
+      document.getElementById('answer-text').textContent =
+        data.error || data.answer || 'Sem resposta.';
+
+      const sourcesSection = document.getElementById('sources-section');
+      const sourceList     = document.getElementById('source-list');
+      sourceList.innerHTML = '';
+
+      if (data.sources && data.sources.length > 0) {
+        data.sources.forEach(s => {
+          const div = document.createElement('div');
+          div.className = 'source-item';
+
+          const badge = s.doc_number
+            ? `<div class="doc-number-badge">📄 ${s.doc_number}</div>`
+            : '';
+
+          const title = s.doc_title
+            ? field('Título', s.doc_title)
+            : '';
+
+          const date = s.doc_date
+            ? field('Emissão', s.doc_date)
+            : '';
+
+          const page = s.page
+            ? field('Página', s.page)
+            : '';
+
+          const pos = s.total_chunks
+            ? field('Trecho', `${Number(s.chunk_position) + 1} de ${s.total_chunks}`)
+            : '';
+
+          div.innerHTML = `
+            ${badge}
+            ${title}
+            ${date}
+            ${field('Arquivo', s.source_file)}
+            ${pos}
+            ${page}
+          `;
+          sourceList.appendChild(div);
+        });
+        sourcesSection.style.display = 'block';
+      } else {
+        sourcesSection.style.display = 'none';
+      }
+
+      result.style.display = 'block';
+
+    } catch (err) {
+      document.getElementById('answer-text').textContent =
+        `Erro: ${err.message}`;
+      result.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      spinner.classList.remove('active');
+    }
+  }
+
+  function field(label, value) {
+    if (!value && value !== 0) return '';
+    return `<div class="field">
+      <span class="field-label">${label}:</span>
+      <span class="field-value">${value}</span>
+    </div>`;
+  }
+</script>
+</body>
+</html>

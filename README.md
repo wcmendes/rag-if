@@ -128,12 +128,49 @@ Fontes:
   - resolucao_002_2024.pdf  | resolucao_002_2024.pdf_chunk_0007 | página 3
 ```
 
+## Interface web
+
+Além da linha de comando, o sistema conta com uma interface web para consulta interativa dos documentos.
+
+A interface permite fazer perguntas em linguagem natural e exibe a resposta gerada pelo LLM junto com os metadados de cada fonte consultada: número da resolução ou instrução normativa, data de emissão, arquivo de origem e posição do trecho no documento.
+
+**Tela inicial:**
+
+![Interface sem pergunta](images/prototipo_interface_1.png)
+
+**Exemplo com pergunta e resposta:**
+
+![Interface com resposta](images/prototipo_interface.png)
+
+### Como executar
+
+```bash
+# Instale a dependência adicional (se ainda não instalou)
+pip install flask
+
+# Suba o servidor
+python app.py
+```
+
+Acesse em **http://localhost:5000**.
+
+Para disponibilizar na rede local (outros usuários na mesma rede):
+
+```bash
+python app.py --host=0.0.0.0
+```
+
+> O `ingest.py` precisa ter sido executado antes para que haja documentos indexados.
+
+---
+
 ### Estrutura do projeto
 
 ```
 rag-if/
 ├── ingest.py                # indexação de documentos
-├── ask.py                   # interface de consulta
+├── ask.py                   # interface de consulta (terminal)
+├── app.py                   # interface web (Flask)
 ├── inspect_chunks.py        # depuração: lista chunks indexados
 ├── orchestrator_rag_eval.py # pipeline de avaliação automatizada
 ├── requirements.txt
@@ -146,6 +183,9 @@ rag-if/
 │   ├── vectorstore.py       # ChromaDB persistente
 │   ├── retriever.py         # busca semântica + expansão de contexto
 │   └── generator.py         # chamada ao LLM (Ollama ou OpenAI)
+├── templates/
+│   └── index.html           # interface web
+├── images/                  # logomarca e assets visuais
 ├── data/
 │   └── raw/                 # coloque seus documentos aqui
 └── vectordb/                # banco vetorial local (gerado automaticamente)
@@ -353,12 +393,49 @@ Fontes:
   - resolucao_002_2024.pdf  | resolucao_002_2024.pdf_chunk_0007 | página 3
 ```
 
+## Web Interface
+
+In addition to the command line, the system includes a web interface for interactive document querying.
+
+The interface lets you ask questions in natural language and displays the LLM-generated answer alongside the metadata of each source consulted: resolution or normative instruction number, issue date, source file, and position of the excerpt in the document.
+
+**Initial screen:**
+
+![Interface without a question](images/prototipo_interface_1.png)
+
+**Example with question and answer:**
+
+![Interface with answer](images/prototipo_interface.png)
+
+### How to run
+
+```bash
+# Install the extra dependency (if not already installed)
+pip install flask
+
+# Start the server
+python app.py
+```
+
+Access at **http://localhost:5000**.
+
+To make it available on the local network (other users on the same network):
+
+```bash
+python app.py --host=0.0.0.0
+```
+
+> `ingest.py` must have been run first so there are indexed documents available.
+
+---
+
 ### Project Structure
 
 ```
 rag-if/
 ├── ingest.py                # document indexing
-├── ask.py                   # query interface
+├── ask.py                   # command-line query interface
+├── app.py                   # web interface (Flask)
 ├── inspect_chunks.py        # debug: list all indexed chunks
 ├── orchestrator_rag_eval.py # automated evaluation pipeline
 ├── requirements.txt
@@ -371,6 +448,9 @@ rag-if/
 │   ├── vectorstore.py       # persistent ChromaDB
 │   ├── retriever.py         # semantic search + context window expansion
 │   └── generator.py         # LLM call (Ollama or OpenAI)
+├── templates/
+│   └── index.html           # web interface
+├── images/                  # logo and visual assets
 ├── data/
 │   └── raw/                 # place your documents here
 └── vectordb/                # local vector store (auto-generated)

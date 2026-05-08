@@ -234,3 +234,5 @@ eval_pipeline.log
 
 CLAUDE.md
 perguntas_v1.json
+resultado_ragas_qwen_v1_1_prompt1/ragas_results_20260430_012754.csv
+resultado_ragas_qwen_v1_1_prompt1/ragas_results_20260430_012754.json
